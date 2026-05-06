@@ -4,6 +4,59 @@
 > **Compiled:** 6 May 2026
 > **Source:** Public content from https://www.imbankgroup.com/ke/
 > **Owner:** I&M Bank Limited (Kenya) — for use by KatiCRM AI Assistant
+
+This repository contains the complete AI chatbot knowledgebase for I&M Bank Kenya.
+
+## 📚 Contents
+
+- **[KNOWLEDGEBASE.md](./KNOWLEDGEBASE.md)** — Full operational document (9,000+ lines)
+- **[OPERATING_RULES.md](./OPERATING_RULES.md)** — Chatbot behavior & anti-hallucination rules
+- **[CONTACTS.md](./CONTACTS.md)** — 24/7 contact information & escalation
+- **[PRODUCTS.md](./PRODUCTS.md)** — Product summary guide
+- **[FAQS.md](./FAQS.md)** — Comprehensive FAQs by category
+- **[ESCALATION.md](./ESCALATION.md)** — Out-of-scope topics & escalation matrix
+
+## 🏦 Quick Contact
+
+- **Call Centre:** +254 20 322 1000 | +254 719 088 000
+- **Toll-Free:** 0800 721 088 (card enquiries)
+- **Email:** customercare@imbank.co.ke
+- **Website:** https://www.imbankgroup.com/ke/
+
+## 📱 Digital Channels
+
+- **I&M On The Go (OTG):** Mobile app & web banking
+- **i-Click:** Internet banking (retail & corporate)
+- **M-PESA Xpress:** Pay bills & transfer via M-PESA
+- **I&M FX Direct:** Online FX trading platform
+
+## 🚀 How to Use This Knowledgebase
+
+1. **For chatbot developers:** Use `KNOWLEDGEBASE.md` as the primary knowledge source
+2. **For escalation guidance:** Reference `ESCALATION.md` for out-of-scope queries
+3. **For contact routing:** Use `CONTACTS.md` with `OPERATING_RULES.md`
+4. **For quick product info:** Check `PRODUCTS.md` and `FAQS.md`
+
+## ⚠️ Key Operating Principles
+
+- ✅ **Only answer using information in this knowledgebase**
+- ✅ **Always recommend verification for rates, fees, eligibility**
+- ❌ **Never give financial, legal, or tax advice**
+- ❌ **Never request sensitive info (PINs, OTPs, card numbers)**
+- 🚨 **Immediate escalation for fraud/security issues**
+
+---
+
+**Maintained by:** KatiCRM AI Assistant Development  
+**Last Updated:** 6 May 2026  
+**License:** Internal Use (Content sourced from I&M Bank public website)
+
+# I&M Bank Kenya — AI Chatbot Knowledgebase
+
+> **Document version:** 1.0
+> **Compiled:** 6 May 2026
+> **Source:** Public content from https://www.imbankgroup.com/ke/
+> **Owner:** I&M Bank Limited (Kenya) — for use by KatiCRM AI Assistant
 > **Coverage:** Personal Banking · Business Banking · Diaspora Banking · Digital Channels · Cards · Loans · Insurance · Investments · Branches · Contact
 
 ---
@@ -1226,6 +1279,111 @@ Use this fallback for any question NOT covered in the knowledgebase:
 
 *End of Operating Rules*
 
+# Contact Information — I&M Bank Kenya
+
+## 24/7 Customer Support
+
+| Channel | Contact | Use For |
+|---------|---------|---------|
+| **Call Centre (Main)** | +254 20 322 1000 | General enquiries, all services |
+| **Call Centre (Alt)** | +254 719 088 000 | General enquiries, all services |
+| **Call Centre (Alt 2)** | +254 732 100 000 | General enquiries, all services |
+| **Toll-Free (Card)** | 0800 721 088 | Card enquiries & issues |
+| **Email (General)** | customercare@imbank.co.ke | Written enquiries |
+| **Email (Call Centre)** | callcentre@imbank.co.ke | Call centre feedback |
+
+---
+
+## Specialized Services
+
+### Custody & Investment Services
+- **Address:** I&M Bank Tower, 8th Floor, Kenyatta Avenue, Nairobi
+- **Phone:** +254 20 322 1000 / +254 20 322 1001
+- **Hours:** Mon–Fri, 9:00 AM – 4:00 PM
+- **Services:** Central Depository Services, securities trading, portfolio management
+
+### Bancassurance (Insurance)
+- **Email:** bancassurance@imbank.co.ke
+- **Services:** Motor, Travel, Health, Education plans, Insurance Premium Financing
+
+### Treasury & FX
+- **Email:** treasury@imbank.co.ke (newsletter subscription)
+- **Services:** Treasury updates, FX rates, forward deals, hedging solutions
+
+### Select Banking Centres
+- **Sarit Centre, Westlands** — Mon–Fri, 9:00 AM – 4:00 PM
+- **Hannover, 14 Riverside, Riverside Drive** — Mon–Fri, 9:00 AM – 4:00 PM
+- **Services:** Premium relationship management, lounge access, exclusive events
+
+### Business Custody
+- **Address:** I&M Bank HQ, 3rd Floor, 1st Parklands Avenue, Nairobi
+- **Phone:** +254 20 322 1000 / +254 20 322 1001
+- **Hours:** Mon–Fri, 9:00 AM – 4:00 PM
+- **Services:** CDS, government securities, corporate bonds
+
+---
+
+## Postal Address
+
+**I&M Bank Limited**  
+P.O. Box 30238-00100  
+Nairobi GPO, Kenya
+
+---
+
+## Fraud & Security Hotline
+
+🚨 **Report immediately:**
+- Lost or stolen card
+- Suspected fraud
+- Unauthorized transactions
+- Phishing/suspicious emails
+
+**Call:** +254 719 088 000 (priority) | +254 20 322 1000 | 0800 721 088
+
+---
+
+## Digital Channels
+
+| Channel | Access | Purpose |
+|---------|--------|---------|
+| **I&M On The Go (OTG)** | Mobile App / Web | Personal banking, loans, transfers, payments |
+| **i-Click (Retail)** | Web | Internet banking, accounts, services |
+| **i-Click (Corporate)** | Web | Business payments, bulk transfers, reporting |
+| **USSD** | `*458#` | Bank info, balance enquiry (separate registration) |
+| **M-PESA Xpress** | USSD / Web | Card payments, transfers, top-ups |
+| **I&M FX Direct** | Web / Mobile | Online FX trading (no account needed) |
+| **Custody Online** | Web | Investment & custody account management |
+
+---
+
+## Branch Network
+
+**Find your nearest branch:** https://www.imbankgroup.com/ke/atms-branches/branches/
+
+Branches across Kenya (counties):
+- Nairobi, Mombasa, Nakuru, Kisumu, and 20+ other counties
+- Each branch has a **24-hour ATM**
+- Agency Banking partnerships available nationwide
+
+---
+
+## Escalation Matrix
+
+| Issue | First Contact | Escalate If |
+|-------|---------------|------------|
+| General enquiry | Call Centre | Not resolved in 24 hrs |
+| Loan/mortgage application | Branch | Decision needed; over 48 hrs |
+| Card issue | 0800 721 088 | Cannot resolve; fraud suspected |
+| Fraud / security | +254 719 088 000 | **Immediate escalation** |
+| Investment / custody | Custody team +254 20 322 1000 | Complex query |
+| Insurance enquiry | bancassurance@imbank.co.ke | Claim or complex cover |
+| Business account | Relationship Manager | Custom solution needed |
+
+---
+
+*End of Contacts*
+
 
 # I&M Bank Kenya — Product Summary
 
@@ -1430,9 +1588,316 @@ Use this fallback for any question NOT covered in the knowledgebase:
 
 *End of Product Summary*
 
+# Escalation Matrix — I&M Bank Kenya
 
+> **Use this guide when a customer question is out of scope or requires immediate escalation.**
 
+---
 
+## 🚨 IMMEDIATE ESCALATION (Do Not Delay)
+
+### Fraud & Security Issues
+
+| Issue | Action | Contact |
+|-------|--------|---------|
+| **Lost or stolen card** | Escalate immediately | +254 719 088 000 (primary) |
+| **Card fraud / unauthorized charges** | Escalate immediately | +254 20 322 1000 |
+| **Phishing / suspicious email** | Escalate immediately | 0800 721 088 |
+| **Account compromise** | Escalate immediately | Nearest branch |
+
+**Response:** "Please call I&M immediately at +254 719 088 000 or 0800 721 088 to report this. Do not share any sensitive information with anyone."
+
+---
+
+## ⏱️ URGENT ESCALATION (Within 24 hours)
+
+| Issue | Action | Contact |
+|-------|--------|---------|
+| **Loan application status (pending 48+ hrs)** | Escalate to branch | Call +254 20 322 1000 |
+| **Card blocking/unblocking needed** | Escalate to security | +254 719 088 000 or 0800 721 088 |
+| **Account access issues** | Escalate to tech support | +254 20 322 1000 |
+| **Transfer failed unexpectedly** | Escalate to operations | +254 20 322 1000 |
+
+---
+
+## 📋 OUT-OF-SCOPE TOPICS (Use Fallback Response)
+
+### Financial & Legal Advice
+
+| Query | Response | Route To |
+|-------|----------|----------|
+| "Should I take a personal loan or mortgage?" | "I can't advise on which product suits you. Please speak with a Relationship Manager." | Branch or +254 20 322 1000 |
+| "How should I invest my money?" | "I can't make investment recommendations. Speak with our Custody & Investment Services team." | +254 20 322 1000 |
+| "What are the tax implications?" | "Tax questions should be addressed to a qualified tax professional, not the bank." | Tax advisor / KRA |
+| "Is this clause in the T&Cs legal for me?" | "For legal interpretation, contact a qualified lawyer or speak with our Relationship Manager." | Lawyer or branch |
+
+### Market & Rate Information
+
+| Query | Response | Route To |
+|-------|----------|----------|
+| "What's the current KES/USD rate?" | "Exchange rates change constantly. Check I&M FX Direct or call our Treasury team." | I&M FX Direct or treasury@imbank.co.ke |
+| "What's the best mortgage rate today?" | "For current rates, please call +254 20 322 1000 or visit your branch." | Branch or call centre |
+| "What's your loan interest rate?" | "Interest rates vary by customer and product. For a specific quote, call +254 20 322 1000." | Branch or call centre |
+
+### Account-Specific Information
+
+| Query | Response | Route To |
+|-------|----------|----------|
+| "What's my account balance?" | "Log into OTG app or web to check. Or call +254 20 322 1000." | OTG or call centre |
+| "Show me my transaction history" | "Access your statements via OTG app, i-Click, or call +254 20 322 1000." | OTG or call centre |
+| "What's my loan approval status?" | "Contact the branch handling your application or call +254 20 322 1000." | Branch or call centre |
+| "Reset my password" | "Use the 'Forgot Password' option on OTG or i-Click, or call +254 20 322 1000." | OTG / i-Click or call centre |
+
+### Specific Product Details
+
+| Query | Response | Route To |
+|-------|----------|----------|
+| "What merchants accept my Buy Now Pay Later?" | "Full merchant lists are available on the OTG app or by calling +254 20 322 1000." | OTG app or call centre |
+| "What are the exact BNPL repayment terms?" | "Specific terms are in the OTG app. For details, call +254 20 322 1000." | OTG or call centre |
+| "What's my current credit card limit?" | "Log into OTG or i-Click, or call +254 20 322 1000 for your limit." | OTG / i-Click or call centre |
+
+### Branch Operations
+
+| Query | Response | Route To |
+|-------|----------|----------|
+| "Is [branch] open on [day/time]?" | "Check the branch locator at https://www.imbankgroup.com/ke/atms-branches/branches/ or call +254 20 322 1000." | Branch locator or call centre |
+| "Can I visit [branch] on [specific date]?" | "Call +254 20 322 1000 to confirm branch availability and hours." | Call centre |
+
+---
+
+## 📞 STANDARD ESCALATION PATH
+
+**For any out-of-scope query:**
+
+1. **Acknowledge** the question
+2. **Explain** it's outside your knowledge base
+3. **Provide the fallback response:**
+   > *"I don't have specific information on that in my reference material. For an accurate answer, please call I&M Bank Customer Care on +254 20 322 1000 or +254 719 088 000, email customercare@imbank.co.ke, or visit your nearest branch. I can also connect you with a live agent if you'd like."*
+4. **Offer alternatives** (call, email, visit branch, live agent)
+
+---
+
+## 🔑 KEY CONTACT REFERENCE
+
+| Contact | Primary Use | Hours |
+|---------|------------|-------|
+| +254 20 322 1000 | General enquiries, all services | 24/7 |
+| +254 719 088 000 | Fraud, security, card issues | 24/7 |
+| 0800 721 088 | Toll-free card enquiries | 24/7 |
+| customercare@imbank.co.ke | Written enquiries | Monitored 24/7 |
+| +254 20 322 1001 | Custody & Investment Services | Mon–Fri, 9 AM–4 PM |
+| bancassurance@imbank.co.ke | Insurance enquiries | Business hours |
+| treasury@imbank.co.ke | FX, treasury, newsletter | Business hours |
+
+---
+
+## ✅ DO's & DON'Ts
+
+### DO:
+- ✅ Use this matrix **before responding**
+- ✅ Escalate immediately for **fraud/security**
+- ✅ Provide **full contact details**
+- ✅ Be **empathetic** when escalating
+- ✅ Document the escalation in your logs
+
+### DON'T:
+- ❌ Attempt to handle **fraud/security** issues yourself
+- ❌ Provide **account-specific data** (balances, statements)
+- ❌ Give **financial or legal advice**
+- ❌ Guess at **rates, fees, or limits**
+- ❌ Delay escalation for **security concerns**
+
+---
+
+*End of Escalation Matrix*
+
+# Frequently Asked Questions — I&M Bank Kenya
+
+## LOANS & BORROWING
+
+**Q: How do I apply for a loan?**
+A: Log in to I&M OTG mobile app or web service, accept Terms & Conditions, view your loan limit, and apply. Visit your branch if you need help.
+
+**Q: What's the range for unsecured personal loans?**
+A: Min KES 50,000 to max KES 3,000,000 (depends on eligibility). Tenure: 6 to 36 months.
+
+**Q: Why did my loan limit change?**
+A: Limits are reviewed periodically based on account activity, CRB status, repayment history, and product rules.
+
+**Q: What are the charges on OTG personal loans?**
+A: 
+- Processing fee: 4% (one-off)
+- Excise duty: 20% on the processing fee
+- Credit life insurance: 0.035%
+- PHCF: 0.25% of the credit life premium
+- Interest rate: varies per customer
+
+**Q: Can I apply for a Short-Term Loan if I have other loans?**
+A: Yes, if you remain eligible.
+
+**Q: What are Short-Term Loan amounts and tenures?**
+A: Amounts: KES 1,000–300,000. Tenures: 1, 3, or 6 months (instalments for 3 & 6 months only).
+
+**Q: Can I prepay my loan?**
+A: Yes — tap "Repay Loan" on OTG app or use web services.
+
+**Q: What if I miss a payment?**
+A: You'll incur additional fees and interest. Ensure funds are available on the due date.
+
+**Q: Can I top up my loan?**
+A: Yes — after 6 months of timely repayments, apply via OTG app if you meet top-up criteria.
+
+**Q: Can I opt out of the loan service?**
+A: Yes, anytime when you have no open loan.
+
+**Q: Do I need a KES account?**
+A: Yes — a Kenyan Shilling account is required for disbursement and instalment recovery.
+
+**Q: What if I dispute a CRB report?**
+A: Contact the CRB that issued the report; they'll reach out to I&M to rectify errors.
+
+---
+
+## MORTGAGES & MILIKI NYUMBA
+
+**Q: What's the interest rate for Miliki Nyumba?**
+A: Fixed at 9.5% for the duration, up to 20 years (subject to retirement age).
+
+**Q: Can I use my existing plot toward the 10% contribution?**
+A: Yes — an existing plot can count toward the 10% contribution, but loans on that plot cannot be combined.
+
+**Q: Can I take more than one Miliki Nyumba loan?**
+A: No — only one loan per first-time homeowner.
+
+**Q: Can Miliki Nyumba be combined with other loans?**
+A: No — it must be taken and paid independently.
+
+**Q: What properties are eligible for Miliki Nyumba?**
+A: Homes from Boma Yangu website, any developed home up to KES 10.5M, or self-construction (residential only).
+
+**Q: How long can I take to repay a mortgage?**
+A: Up to 20 years (KES); up to 10 years (USD/EUR). Average life: 8–9 years.
+
+---
+
+## CARDS & MILELE REWARDS
+
+**Q: How do I enrol in Milele Rewards?**
+A: Automatic enrolment when you activate your I&M Debit or Credit Card — no separate sign-up.
+
+**Q: Which transactions earn points?**
+A: POS purchases, online (e-commerce), and recurring payments (bills, subscriptions).
+
+**Q: Which transactions don't earn points?**
+A: ATM withdrawals, cash advances, fees, interest, penalties, annual card fees, refunded/reversed transactions.
+
+**Q: What's the value of Milele Points?**
+A: 1 Milele Point = KES 1.
+
+**Q: Do international purchases earn points?**
+A: Yes — and you may earn triple points on international transactions.
+
+**Q: Will I lose points if my card is lost/stolen?**
+A: No — points remain in your account. Report immediately; points become accessible once replacement is issued.
+
+**Q: How do I check my voucher balance?**
+A: Dial `*483*18#` — balance shown at top of dialog.
+
+**Q: Where can I redeem Milele Points?**
+A: Travel (950+ airlines, 700+ hotels), cashback to I&M account, eVouchers at 3,000+ merchants (Carrefour, Naivas, Textbook Centre, Optica, Art Caffe, LC Waikiki, etc.).
+
+**Q: When do points credit?**
+A: Typically next business day after POS/e-commerce transaction. Some types take longer.
+
+---
+
+## ACCOUNTS & CARDS
+
+**Q: What documents do I need for a Foreign Currency Account?**
+A: 
+- Kenyan Citizen: National ID or Passport + photo
+- Foreign National: Passport + Work Permit/Dependent Pass + photo
+
+**Q: What's required for a Prepaid Card?**
+A: Application form, ID (original + copy), KRA PIN copy, passport photo. Indicate purpose, use, and frequency.
+
+**Q: Can non-account holders use I&M services?**
+A: Yes — Bancassurance, Insurance Premium Financing, and I&M FX Direct don't require an I&M account.
+
+---
+
+## DIGITAL CHANNELS
+
+**Q: How do I register for I&M On The Go (OTG)?**
+A: Download from App Store/Play Store or visit web link. Register with your I&M-registered email. If upgrading from old system, use "forgot password".
+
+**Q: How do I authenticate transactions on OTG?**
+A: Via SMS, email, or Google Authenticator.
+
+**Q: Does OTG support joint approvers?**
+A: Yes — for joint account holders, two joint approvers can authorize transactions.
+
+**Q: Does I&M offer compensation for failed transfers?**
+A: Yes — under OTG Service Guarantee, if I&M fails to execute an International (TT) or RTGS Local Transfer due to bank error, compensation applies (T&Cs).
+
+**Q: Is sending to M-PESA free?**
+A: Yes — sending from your I&M Bank personal account to M-PESA is free.
+
+---
+
+## INSURANCE
+
+**Q: How long is travel insurance coverage per trip?**
+A: Up to 92 consecutive days per trip, even with annual policies.
+
+**Q: Can non-residents get travel cover?**
+A: Yes — via Inbound travel insurance for visitors to Kenya.
+
+**Q: What does health insurance cover?**
+A: Inpatient, outpatient, pre-existing conditions (up to agreed limit), maternity, dental, optical. No co-payment for inpatient/outpatient.
+
+**Q: What does motor insurance cover?**
+A: Accidental own damage, theft, fire, and third-party liability.
+
+---
+
+## BUY NOW PAY LATER
+
+**Q: How do I apply for Buy Now Pay Later?**
+A: Apply via I&M OTG app or web services (existing I&M customers only).
+
+**Q: How does payment work at outlets?**
+A: I&M Bank pays the merchant on your behalf; you repay the bank over a flexible predetermined period.
+
+---
+
+## INVESTMENTS & CUSTODY
+
+**Q: What's the Employee Investment Loan Scheme (EILS)?**
+A: A scheme letting employees borrow from I&M to invest in treasury bonds, with repayment via salary and the bond as security.
+
+**Q: What services does Custody offer?**
+A: Central Depository Services (CDS), government securities, corporate bonds, offshore investments, nominee services, corporate actions.
+
+---
+
+## GENERAL
+
+**Q: Who regulates I&M Bank?**
+A: Central Bank of Kenya (CBK). Also licensed by CMA, CDSC, and RBA for custody/investment services.
+
+**Q: What are I&M Bank's mission and values?**
+A: Mission: "Partners of growth for all stakeholders." Values: Customer focus, employee development, shareholder value, fairness.
+
+**Q: When was I&M Bank founded?**
+A: Founded in 1974 as Investments & Mortgages Limited; converted to commercial bank 1 April 1996.
+
+**Q: Is I&M Bank listed?**
+A: Yes — I&M Bank is a subsidiary of I&M Group PLC, listed on the Nairobi Securities Exchange (NSE).
+
+---
+
+*End of FAQs*
 
 
 ### Changelog
