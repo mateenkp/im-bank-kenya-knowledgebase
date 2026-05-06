@@ -4,91 +4,49 @@
 > **Compiled:** 6 May 2026
 > **Source:** Public content from https://www.imbankgroup.com/ke/
 > **Owner:** I&M Bank Limited (Kenya) — for use by KatiCRM AI Assistant
-> **Access:** Private Repository
 
-This repository contains the complete AI chatbot knowledgebase for I&M Bank Kenya, designed to power intelligent, grounded customer service responses.
+This repository contains the complete AI chatbot knowledgebase for I&M Bank Kenya.
 
-## 📚 Repository Contents
+## 📚 Contents
 
-- **[KNOWLEDGEBASE.md](./KNOWLEDGEBASE.md)** — Full operational knowledgebase (9,000+ lines)
-- **[CONTACTS.md](./CONTACTS.md)** — Contact information & escalation
+- **[KNOWLEDGEBASE.md](./KNOWLEDGEBASE.md)** — Full operational document (9,000+ lines)
+- **[OPERATING_RULES.md](./OPERATING_RULES.md)** — Chatbot behavior & anti-hallucination rules
+- **[CONTACTS.md](./CONTACTS.md)** — 24/7 contact information & escalation
 - **[PRODUCTS.md](./PRODUCTS.md)** — Product summary guide
-- **[FAQS.md](./FAQS.md)** — Frequently asked questions
-- **[OPERATING_RULES.md](./OPERATING_RULES.md)** — Chatbot operating instructions
+- **[FAQS.md](./FAQS.md)** — Comprehensive FAQs by category
+- **[ESCALATION.md](./ESCALATION.md)** — Out-of-scope topics & escalation matrix
 
-## 🏦 Coverage
+## 🏦 Quick Contact
 
-- ✅ Personal Banking (Accounts, Cards, Loans, Insurance, Investments)
-- ✅ Business Banking (Business Accounts, Trade Finance, Asset Finance)
-- ✅ Diaspora Banking Services
-- ✅ Digital Banking Channels (OTG, i-Click, USSD, M-PESA)
-- ✅ Cards & Loyalty Programs (Milele Rewards)
-- ✅ Branch & ATM Network
-- ✅ Comprehensive FAQs & Escalation Protocols
-
-## 📞 24-Hour Customer Support
-
-- **Call Centre:** +254 20 322 1000 | +254 719 088 000 | +254 732 100 000
-- **Toll-Free (Card Enquiries):** 0800 721 088
+- **Call Centre:** +254 20 322 1000 | +254 719 088 000
+- **Toll-Free:** 0800 721 088 (card enquiries)
 - **Email:** customercare@imbank.co.ke
-- **Fraud/Security Emergency:** +254 719 088 000 (immediate escalation)
+- **Website:** https://www.imbankgroup.com/ke/
 
-## 🎯 Key Operating Principles
+## 📱 Digital Channels
 
-### ✅ Always Do:
-- Answer ONLY using information in this knowledgebase
-- Recommend verification for time-sensitive items (rates, eligibility, hours)
-- Route customers to appropriate channels for out-of-scope questions
-- Escalate fraud, lost cards, and security concerns immediately
+- **I&M On The Go (OTG):** Mobile app & web banking
+- **i-Click:** Internet banking (retail & corporate)
+- **M-PESA Xpress:** Pay bills & transfer via M-PESA
+- **I&M FX Direct:** Online FX trading platform
 
-### ❌ Never Do:
-- Invent or extrapolate information
-- Provide financial, legal, or tax advice
-- Request or accept sensitive data (PINs, OTPs, card numbers, ID numbers)
-- Compare I&M Bank to competitors
-- Make product recommendations
+## 🚀 How to Use This Knowledgebase
 
-## 📋 Document Structure
+1. **For chatbot developers:** Use `KNOWLEDGEBASE.md` as the primary knowledge source
+2. **For escalation guidance:** Reference `ESCALATION.md` for out-of-scope queries
+3. **For contact routing:** Use `CONTACTS.md` with `OPERATING_RULES.md`
+4. **For quick product info:** Check `PRODUCTS.md` and `FAQS.md`
 
-The knowledgebase follows this hierarchy:
+## ⚠️ Key Operating Principles
 
-1. **Operating Instructions** (§0) — Mandatory rules for bot behavior
-2. **About I&M Bank** (§1) — Regulatory status, group structure, mission/vision
-3. **Contact Information** (§2) — Phone, email, postal, specialized contacts
-4. **Personal Banking** (§3) — Accounts, cards, loans, insurance, custody, digital
-5. **Business Banking** (§4) — Business accounts, loans, trade finance, FX
-6. **Diaspora Banking** (§5) — Services for Kenyans abroad
-7. **Digital Banking Channels** (§6) — OTG, i-Click, USSD, M-PESA, FX Direct
-8. **Branches & ATMs** (§7) — Network and locations
-9. **FAQs** (§8) — Common questions across all product areas
-10. **Glossary** (§9) — Terminology and acronyms
-11. **Escalation Guide** (§10) — Out-of-scope topics and routing
-
-## 🔄 Maintenance
-
-- **Refresh Cadence:** Quarterly review minimum
-- **High-Volatility Sections:** Rates, fees, limits, contact numbers, branch hours, digital channels
-- **Version Control:** Incremented on every update with changelog entry
-- **Last Updated:** 6 May 2026
-
-### Update Changelog
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0 | 6 May 2026 | Initial knowledgebase compilation from I&M Bank public website |
-
-## 🚀 Implementation Notes
-
-This knowledgebase is designed to be:
-
-1. **Single Source of Truth** — Bot should load ONLY this document as knowledge source
-2. **Anti-Hallucination** — Explicit rules prevent inference and extrapolation
-3. **Operationally Grounded** — Every statement sourced from public I&M Bank content
-4. **Escalation-Ready** — Clear routing for out-of-scope and urgent queries
-5. **Maintenance-Friendly** — Structured for easy quarterly updates
+- ✅ **Only answer using information in this knowledgebase**
+- ✅ **Always recommend verification for rates, fees, eligibility**
+- ❌ **Never give financial, legal, or tax advice**
+- ❌ **Never request sensitive info (PINs, OTPs, card numbers)**
+- 🚨 **Immediate escalation for fraud/security issues**
 
 ---
 
-**Repository Owner:** mateenkp  
-**For:** KatiCRM AI Assistant  
-**License:** Content sourced from I&M Bank Kenya public website (https://www.imbankgroup.com/ke/)  
-**Status:** Active & Maintained
+**Maintained by:** KatiCRM AI Assistant Development  
+**Last Updated:** 6 May 2026  
+**License:** Internal Use (Content sourced from I&M Bank public website)
