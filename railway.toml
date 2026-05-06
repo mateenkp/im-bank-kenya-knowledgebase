@@ -1,5 +1,5 @@
 [build]
-buildCommand = "mkdocs build"
+buildCommand = "echo 'Static site — no build step required'"
 
 [deploy]
-startCommand = "python -m http.server --bind 0.0.0.0 --directory site ${PORT:-8080}"
+startCommand = "python -m http.server --bind 0.0.0.0 --directory . ${PORT:-8080}"
