@@ -1,4 +1,5 @@
 site_name: I&M Bank Kenya Knowledgebase
+docs_dir: .
 theme:
   name: material
 nav:
