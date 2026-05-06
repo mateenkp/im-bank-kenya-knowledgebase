@@ -1,2 +1,2 @@
-mkdocs
-mkdocs-material
+# No Python dependencies required — site is served as a static HTML file
+# via Python's built-in http.server module (included in the standard library)

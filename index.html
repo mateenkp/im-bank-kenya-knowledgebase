@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I&amp;M Bank Kenya — AI Chatbot Knowledgebase</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f6fa;
+      color: #1a1a2e;
+      line-height: 1.7;
+    }
+
+    /* ── Layout ── */
+    .layout { display: flex; min-height: 100vh; }
+
+    /* ── Sidebar / TOC ── */
+    .sidebar {
+      width: 280px;
+      flex-shrink: 0;
+      background: #0a2342;
+      color: #c8d8e8;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 0 0 2rem 0;
+    }
+    .sidebar-header {
+      background: #061829;
+      padding: 1.25rem 1.25rem 1rem;
+      border-bottom: 1px solid #1a3a5c;
+    }
+    .sidebar-header .bank-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+    .sidebar-header .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: #e8a020;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .sidebar-header .bank-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .sidebar-header .bank-sub {
+      font-size: 0.7rem;
+      color: #7a9bbf;
+      margin-top: 0.15rem;
+    }
+    .toc-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4a7a9b;
+      padding: 1.25rem 1.25rem 0.4rem;
+    }
+    .toc-nav a {
+      display: block;
+      padding: 0.45rem 1.25rem;
+      font-size: 0.82rem;
+      color: #a0bcd4;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+    }
+    .toc-nav a:hover,
+    .toc-nav a.active {
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+      border-left-color: #e8a020;
+    }
+    .toc-nav .toc-section {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #4a7a9b;
+      padding: 1rem 1.25rem 0.3rem;
+    }
+
+    /* ── Main Content ── */
+    .main {
+      flex: 1;
+      min-width: 0;
+      padding: 2.5rem 3rem;
+      max-width: 960px;
+    }
+
+    /* ── Page Header ── */
+    .page-header {
+      background: linear-gradient(135deg, #0a2342 0%, #1a4a7a 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 2.5rem 2.5rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .page-header .badge {
+      display: inline-block;
+      background: #e8a020;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+    .page-header h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+    .page-header .meta {
+      font-size: 0.82rem;
+      color: #a0c4e8;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .page-header .meta span { display: flex; align-items: center; gap: 0.35rem; }
+
+    /* ── Quick Contact Bar ── */
+    .contact-bar {
+      background: #fff;
+      border: 1px solid #e0e8f0;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      align-items: center;
+    }
+    .contact-bar .cb-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #e8a020;
+      width: 100%;
+    }
+    .contact-bar .cb-item {
+      font-size: 0.85rem;
+      color: #1a1a2e;
+    }
+    .contact-bar .cb-item strong { color: #0a2342; }
+    .contact-bar .cb-item a { color: #1a5fa8; text-decoration: none; }
+    .contact-bar .cb-item a:hover { text-decoration: underline; }
+
+    /* ── Section Wrappers ── */
+    .doc-section {
+      background: #fff;
+      border: 1px solid #e0e8f0;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .doc-section-header {
+      background: linear-gradient(90deg, #0a2342 0%, #1a3a5c 100%);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .doc-section-header .section-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .doc-section-header h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .doc-section-header .section-tag {
+      margin-left: auto;
+      font-size: 0.65rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.15);
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .doc-section-body {
+      padding: 1.75rem 1.75rem 1.5rem;
+    }
+
+    /* ── Typography inside sections ── */
+    .doc-section-body h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0a2342;
+      margin: 1.75rem 0 0.6rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid #e8a020;
+    }
+    .doc-section-body h2:first-child { margin-top: 0; }
+    .doc-section-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a3a5c;
+      margin: 1.25rem 0 0.4rem;
+    }
+    .doc-section-body h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #2a5a8c;
+      margin: 1rem 0 0.35rem;
+    }
+    .doc-section-body p {
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      color: #2a2a3e;
+    }
+    .doc-section-body ul, .doc-section-body ol {
+      margin: 0.4rem 0 0.75rem 1.4rem;
+      font-size: 0.9rem;
+      color: #2a2a3e;
+    }
+    .doc-section-body li { margin-bottom: 0.25rem; }
+    .doc-section-body strong { color: #0a2342; }
+    .doc-section-body em { color: #4a6a8a; }
+    .doc-section-body a { color: #1a5fa8; }
+    .doc-section-body a:hover { text-decoration: underline; }
+    .doc-section-body code {
+      background: #eef2f7;
+      border: 1px solid #d0dce8;
+      border-radius: 4px;
+      padding: 0.1em 0.4em;
+      font-size: 0.85em;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      color: #c0392b;
+    }
+    .doc-section-body blockquote {
+      border-left: 4px solid #e8a020;
+      background: #fdf8ee;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem;
+      color: #4a3a1a;
+    }
+    .doc-section-body blockquote p { margin-bottom: 0; color: #4a3a1a; }
+    .doc-section-body hr {
+      border: none;
+      border-top: 1px solid #e8eef5;
+      margin: 1.5rem 0;
+    }
+
+    /* ── Tables ── */
+    .doc-section-body table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0.75rem 0 1rem;
+    }
+    .doc-section-body th {
+      background: #0a2342;
+      color: #fff;
+      padding: 0.55rem 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .doc-section-body td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #e8eef5;
+      vertical-align: top;
+      color: #2a2a3e;
+    }
+    .doc-section-body tr:nth-child(even) td { background: #f7fafd; }
+    .doc-section-body tr:hover td { background: #eef4fb; }
+
+    /* ── Alert / callout boxes ── */
+    .alert {
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.88rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+    .alert-danger { background: #fff0f0; border: 1px solid #f5c6c6; color: #7a1a1a; }
+    .alert-warning { background: #fffbee; border: 1px solid #f5e0a0; color: #6a4a00; }
+    .alert-info { background: #eef6ff; border: 1px solid #b8d8f8; color: #0a3a6a; }
+    .alert-success { background: #eefaf2; border: 1px solid #a8dfc0; color: #0a4a20; }
+
+    /* ── FAQ items ── */
+    .faq-item {
+      border: 1px solid #e0e8f0;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+    .faq-q {
+      background: #f0f5fb;
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: #0a2342;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .faq-q::after { content: "▾"; flex-shrink: 0; color: #e8a020; }
+    .faq-a {
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+      color: #2a2a3e;
+      background: #fff;
+      border-top: 1px solid #e0e8f0;
+    }
+
+    /* ── Scrollbar ── */
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: #2a4a6a; border-radius: 2px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .main { padding: 1.5rem 1.25rem; }
+    }
+    @media print {
+      .sidebar { display: none; }
+      .main { padding: 0; max-width: 100%; }
+      .doc-section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ══════════════════════════════════════════
+       SIDEBAR — TABLE OF CONTENTS
+  ══════════════════════════════════════════ -->
+  <nav class="sidebar" aria-label="Table of contents">
+    <div class="sidebar-header">
+      <a href="#top" class="bank-logo">
+        <div class="logo-mark">I&amp;M</div>
+        <div>
+          <div class="bank-name">I&amp;M Bank Kenya</div>
+          <div class="bank-sub">AI Chatbot Knowledgebase</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="toc-label">Contents</div>
+    <div class="toc-nav">
+      <a href="#overview">Overview</a>
+      <a href="#contacts">Contact Information</a>
+
+      <div class="toc-section">Knowledgebase</div>
+      <a href="#kb-about">1. About I&amp;M Bank</a>
+      <a href="#kb-contact">2. Contact Details</a>
+      <a href="#kb-personal">3. Personal Banking</a>
+      <a href="#kb-business">4. Business Banking</a>
+      <a href="#kb-diaspora">5. Diaspora Banking</a>
+      <a href="#kb-digital">6. Digital Channels</a>
+      <a href="#kb-branches">7. Branches &amp; ATMs</a>
+      <a href="#kb-faqs">8. Key FAQs</a>
+      <a href="#kb-glossary">9. Glossary</a>
+      <a href="#kb-outofscope">10. Out of Scope</a>
+
+      <div class="toc-section">Reference Docs</div>
+      <a href="#products">Products Summary</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#escalation">Escalation Matrix</a>
+      <a href="#operating-rules">Operating Rules</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════ -->
+  <main class="main" id="top">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="badge">AI Chatbot Reference</div>
+      <h1>I&amp;M Bank Kenya — Knowledgebase</h1>
+      <p style="color:#c8dff0;font-size:0.9rem;">Complete reference for the KatiCRM AI Assistant. All content sourced from public pages at <a href="https://www.imbankgroup.com/ke/" style="color:#e8c870;">imbankgroup.com/ke</a>.</p>
+      <div class="meta">
+        <span>📄 Document version: 1.0</span>
+        <span>📅 Compiled: 6 May 2026</span>
+        <span>🏦 Owner: I&amp;M Bank Limited (Kenya)</span>
+      </div>
+    </div>
+
+    <!-- Quick Contact Bar -->
+    <div class="contact-bar" id="overview">
+      <div class="cb-label">🚨 Quick Contact — Available 24/7</div>
+      <div class="cb-item"><strong>Call Centre:</strong> <a href="tel:+254203221000">+254 20 322 1000</a> | <a href="tel:+254719088000">+254 719 088 000</a></div>
+      <div class="cb-item"><strong>Toll-Free (Cards):</strong> <a href="tel:0800721088">0800 721 088</a></div>
+      <div class="cb-item"><strong>Email:</strong> <a href="mailto:customercare@imbank.co.ke">customercare@imbank.co.ke</a></div>
+      <div class="cb-item"><strong>Website:</strong> <a href="https://www.imbankgroup.com/ke/" target="_blank">imbankgroup.com/ke</a></div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         SECTION: KNOWLEDGEBASE
+    ══════════════════════════════════════════ -->
+
+    <!-- 1. About I&M Bank -->
+    <div class="doc-section" id="kb-about">
+      <div class="doc-section-header">
+        <span class="section-icon">🏦</span>
+        <h2>1. About I&amp;M Bank Kenya</h2>
+        <span class="section-tag">Knowledgebase</span>
+      </div>
+      <div class="doc-section-body">
+
+        <h3>1.1 Overview</h3>
+        <p>I&amp;M Bank Limited is a leading commercial bank in Kenya, founded in <strong>1974</strong> as a financial services company (originally Investments &amp; Mortgages Limited, based in Phoenix House, Nairobi) and formally converted to a commercial bank on <strong>1 April 1996</strong> following Central Bank of Kenya regulatory changes.</p>
+
+        <h3>1.2 Group Structure</h3>
+        <p>I&amp;M Bank is a wholly-owned subsidiary of <strong>I&amp;M Group PLC</strong> (formerly I&amp;M Holdings PLC), a public company listed on the <strong>Nairobi Securities Exchange (NSE)</strong>.</p>
+        <p>I&amp;M Group operates in <strong>five countries</strong> — Kenya, Tanzania, Rwanda, Uganda, and Mauritius — through subsidiaries, affiliates, and joint ventures:</p>
+        <ul>
+          <li><strong>I&amp;M Bank LIMITED</strong> (Kenya) — the largest entity by asset value (~80% of group assets)</li>
+          <li><strong>I&amp;M Bank (T) Limited</strong> (Tanzania)</li>
+          <li><strong>I&amp;M Bank (Rwanda) Plc</strong></li>
+          <li><strong>I&amp;M Burbidge Capital (U) Limited</strong> (Uganda) — corporate finance advisory</li>
+          <li><strong>Bank One Limited</strong> (Mauritius) — 50% jointly held with CIEL Finance</li>
+        </ul>
+        <p>Related Group companies include <strong>GA Insurance Company</strong> (one of Kenya's oldest general insurance companies, originally General Accident UK, incorporated 1979) and <strong>I&amp;M Bancassurance Intermediary Limited (I&amp;MIL)</strong> — the bank's bancassurance arm.</p>
+
+        <h3>1.3 Mission, Vision &amp; Values</h3>
+        <ul>
+          <li><strong>Mission:</strong> "To be partners of growth for all our stakeholders."</li>
+          <li><strong>Vision:</strong> "To become a company where the best people want to work, the first choice where customers want to do business, and where shareholders are happy with their investment."</li>
+          <li><strong>Values:</strong> Customer focus, employee development, shareholder value, fairness to partners.</li>
+        </ul>
+
+        <h3>1.4 Regulatory Status</h3>
+        <ul>
+          <li>Licensed and regulated by the <strong>Central Bank of Kenya (CBK)</strong></li>
+          <li>Listed on the Nairobi Securities Exchange (NSE)</li>
+          <li>Custody business licensed by the <strong>Capital Markets Authority (CMA)</strong> and <strong>Central Depository &amp; Settlements Corporation (CDSC)</strong></li>
+          <li>Pension custody registered with the <strong>Retirement Benefits Authority (RBA)</strong></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- 2. Contact Information -->
+    <div class="doc-section" id="kb-contact">
+      <div class="doc-section-header">
+        <span class="section-icon">📞</span>
+        <h2>2. Contact Information</h2>
+        <span class="section-tag">Knowledgebase</span>
+      </div>
+      <div class="doc-section-body">
+
+        <h3>2.1 24-Hour Call Centre</h3>
+        <ul>
+          <li><strong>+254 719 088 000</strong></li>
+          <li><strong>+254 20 322 1000</strong></li>
+          <li><strong>+254 732 100 000</strong></li>
+          <li><strong>0800 721 088</strong> <em>(toll-free — card enquiries)</em></li>
+        </ul>
+
+        <h3>2.2 Email</h3>
+        <ul>
+          <li>General customer care: <strong>customercare@imbank.co.ke</strong></li>
+          <li>Call centre: <strong>callcentre@imbank.co.ke</strong></li>
+        </ul>
+
+        <h3>2.3 Postal Address</h3>
+        <p><strong>I&amp;M Bank</strong><br>P.O. Box 30238-00100<br>Nairobi GPO, Kenya</p>
+
+        <h3>2.4 Specialised Contacts</h3>
+        <table>
+          <thead><tr><th>Department</th><th>Contact</th><th>Hours</th></tr></thead>
+          <tbody>
+            <tr><td>Custody &amp; Investment Services</td><td>I&amp;M Bank Tower, 8th Floor, Kenyatta Ave. Phone: +254 20 322 1000 / +254 20 322 1001</td><td>Mon–Fri, 9:00 AM – 4:00 PM</td></tr>
+            <tr><td>Bancassurance</td><td>bancassurance@imbank.co.ke</td><td>Business hours</td></tr>
+            <tr><td>Treasury Newsletter</td><td>treasury@imbank.co.ke</td><td>Business hours</td></tr>
+            <tr><td>Select Banking — Sarit Centre</td><td>Sarit Centre, Westlands</td><td>Mon–Fri, 9:00 AM – 4:00 PM</td></tr>
+            <tr><td>Select Banking — Hannover</td><td>14 Riverside, Riverside Drive</td><td>Mon–Fri, 9:00 AM – 4:00 PM</td></tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- 3. Personal Banking -->
+    <div class="doc-section" id="kb-personal">
+      <div class="doc-section-header">
+        <span class="section-icon">👤</span>
+        <h2>3. Personal Banking</h2>
+        <span class="section-tag">Knowledgebase</span>
+      </div>
+      <div class="doc-section-body">
+
+        <h3>3.1 Personal Transaction Accounts</h3>
+        <p>Two transaction account options:</p>
+        <ul>
+          <li><strong>Club Account</strong> — flat-fee account</li>
+          <li><strong>PayGo Account</strong> — pay-as-you-go account</li>
+        </ul>
+        <p>Both accounts include access to electronic banking, International Visa Cards, and <strong>IMBA loyalty points</strong>. A <strong>Foreign Currency Transaction Account</strong> is also available in 8 major currencies.</p>
+
+        <h3>3.2 Personal Savings Accounts</h3>
+        <ul>
+          <li><strong>I&amp;M Savers Account</strong> — for general savings goals</li>
+          <li><strong>Children's Savings Account</strong> — designed to build savings habits for children</li>
+          <li><strong>Foreign Currency Savings options</strong> — available in Kenya Shillings and major foreign currencies</li>
+        </ul>
+
+        <h3>3.3 Foreign Currency Accounts</h3>
+        <p>The <strong>Sapphire Foreign Currency Account</strong> and <strong>Foreign Currency (FCY) Account</strong> are offered in <strong>8 major currencies</strong>: USD, GBP, EUR, AUD, ZAR, JPY, CHF, and others.</p>
+        <h4>Account Opening — Sapphire FCY (Individuals)</h4>
+        <ul>
+          <li><strong>Kenyan Citizens:</strong> National ID card or Passport. Photo taken at branch (or digital copy).</li>
+          <li><strong>Foreign Nationals:</strong> Passport, Work Permit / Dependent Pass. Photo taken at branch (or digital copy).</li>
+        </ul>
+
+        <h3>3.4 Personal Cards</h3>
+
+        <h4>3.4.1 Credit Cards</h4>
+        <ul>
+          <li><strong>KES 0 Joining Fee</strong> on featured products</li>
+          <li>Free credit period <strong>up to 50 days</strong></li>
+          <li>Cash advance up to <strong>30%–40% of the credit limit</strong></li>
+          <li>Worldwide acceptance</li>
+          <li>Earn <strong>Milele Points</strong> on POS and online spend</li>
+        </ul>
+        <p>Premium tiers (e.g., <strong>I&amp;M World Credit Mastercard</strong>) offer: unlimited airport lounge access at 1,400+ airports worldwide, comprehensive travel insurance (cardholder, spouse, children, helper), extended warranty up to 24 months, concierge services, 3D-secure online transactions, PIN management and card lock/unlock via the I&amp;M Mobile App, and supplementary cards for family members.</p>
+        <div class="alert alert-warning">⚠️ Exact fees and limits depend on the specific card variant. Confirm with the branch or call +254 20 322 1000.</div>
+
+        <h4>3.4.2 Debit Cards</h4>
+        <ul>
+          <li><strong>KSh 0 card annual fees</strong> on featured cards</li>
+          <li>Free unlimited Airport Lounge Access (Mastercard Travel Pass)</li>
+          <li>Earn cash rewards on all POS and online transactions</li>
+          <li>Access to <strong>over 1 million ATMs in over 210 countries</strong></li>
+          <li>Daily withdrawal limit example: <strong>KSh 100,000 (or USD equivalent)</strong></li>
+        </ul>
+
+        <h4>3.4.3 Prepaid Cards</h4>
+        <p>I&amp;M Bank offers <strong>three prepaid cards</strong> — one Mastercard and two Visa — instantly issued at all I&amp;M Bank branches.</p>
+        <table>
+          <thead><tr><th>Card</th><th>Issuance Fee</th><th>Currency</th><th>Max Load</th></tr></thead>
+          <tbody>
+            <tr><td><strong>I&amp;M Multicurrency Prepaid (Mastercard)</strong></td><td>USD 10</td><td>USD, GBP, EUR</td><td>USD 15,000</td></tr>
+            <tr><td><strong>I&amp;M Visa Travel Prepaid (USD)</strong></td><td>USD 8</td><td>USD</td><td>—</td></tr>
+            <tr><td><strong>I&amp;M Visa Safari Prepaid</strong></td><td>—</td><td>KES</td><td>KSh 500,000 per load</td></tr>
+          </tbody>
+        </table>
+        <h4>Prepaid Card Application — Required Documents</h4>
+        <ul>
+          <li>Application form</li>
+          <li>Original and copy of National ID or Passport</li>
+          <li>Copy of KRA PIN</li>
+          <li>Recent passport photo</li>
+          <li>Indicate purpose, intended use, and frequency on the form</li>
+        </ul>
+
+        <h3>3.5 Personal Loans</h3>
+
+        <h4>3.5.1 Unsecured Personal Loan (Branch)</h4>
+        <ul>
+          <li><strong>Loan amount:</strong> Up to <strong>KES 300,000</strong></li>
+          <li><strong>Tenure:</strong> 1 to 60 months</li>
+          <li>Unsecured (no collateral required)</li>
+          <li>Quick turnaround — applications processed within <strong>24 hours</strong></li>
+          <li>Credit life insurance included</li>
+        </ul>
+
+        <h4>3.5.2 Unsecured Personal Loan — via OTG (Digital)</h4>
+        <ul>
+          <li><strong>Loan amount:</strong> Min <strong>KES 50,000</strong> to max <strong>KES 3,000,000</strong></li>
+          <li><strong>Tenure:</strong> 6 to 36 months</li>
+          <li><strong>Processing fee:</strong> 4% of loan amount (one-off)</li>
+          <li><strong>Excise duty:</strong> 20% charged on the processing fee</li>
+          <li><strong>Credit life insurance premium:</strong> 0.035% (with PHCF at 0.25% of the credit life premium)</li>
+          <li>Top-up loans available after <strong>6 months</strong> of timely repayments</li>
+          <li>A Kenyan Shilling account is required for disbursement</li>
+        </ul>
+
+        <h4>3.5.3 I&amp;M@Work Unsecured Personal Loan</h4>
+        <ul>
+          <li>Unsecured personal loan up to <strong>KES 10 million</strong></li>
+          <li>Repayment tenure up to <strong>96 months</strong></li>
+          <li>Available via employers under the I&amp;M@Work scheme</li>
+        </ul>
+
+        <h4>3.5.4 I&amp;M Short-Term Loan</h4>
+        <ul>
+          <li>Quick unsecured personal loan, <strong>disbursed instantly</strong></li>
+          <li><strong>Loan amount:</strong> KES 1,000 – KES 300,000</li>
+          <li><strong>Tenure options:</strong> 1 month, 3 months, or 6 months</li>
+          <li>Apply via the I&amp;M Bank OTG Mobile App</li>
+        </ul>
+
+        <h4>3.5.5 Home Loans / Mortgages</h4>
+        <ul>
+          <li><strong>Tenure:</strong> Up to 20 years (KES); up to 10 years (USD/EUR)</li>
+          <li>Types: Residential, Commercial, Foreign Currency (USD-denominated)</li>
+          <li><strong>Deal Facilitation services</strong> offered via the Diaspora Banking Unit (free for diaspora customers signing up for I&amp;M mortgage services)</li>
+          <li>Weighted Average Life (WAL) of mortgages is typically <strong>8–9 years</strong></li>
+        </ul>
+
+        <h4>3.5.6 Miliki Nyumba (Affordable Housing Mortgage)</h4>
+        <ul>
+          <li>Aligned to Kenya's affordable housing scheme via the <strong>Boma Yangu</strong> programme</li>
+          <li>Eligible properties: any developed home priced <strong>KES 10.5M and below</strong>, or self-construction</li>
+          <li>For <strong>residential houses only</strong></li>
+          <li><strong>Customer contribution:</strong> 10% (an existing plot can count toward the 10%)</li>
+          <li>Only <strong>one</strong> Miliki Nyumba loan per first-time homeowner</li>
+          <li><strong>Interest rate:</strong> Fixed at <strong>9.5%</strong> for the duration, up to 20 years</li>
+        </ul>
+
+        <h4>3.5.7 Buy Now Pay Later (BNPL)</h4>
+        <ul>
+          <li>Unsecured loan for <strong>existing individual I&amp;M Bank customers</strong></li>
+          <li>I&amp;M Bank pays the merchant directly on the customer's behalf</li>
+          <li>Apply via the I&amp;M Bank OTG mobile app or web services</li>
+        </ul>
+
+        <h3>3.6 Personal Insurance (Bancassurance)</h3>
+        <p>Provided through <strong>I&amp;M Bancassurance Intermediary Limited (I&amp;MIL)</strong>. Open to both I&amp;M Bank account holders and non-account holders. Contact: <strong>bancassurance@imbank.co.ke</strong></p>
+
+        <h4>Motor Insurance</h4>
+        <p>Private motor insurance for social, domestic, and pleasure purposes. Cover includes: accidental own damage, theft, fire, and third-party liability.</p>
+
+        <h4>Travel Insurance</h4>
+        <ul>
+          <li>Underwritten with <strong>GA Insurance</strong> and <strong>MAPFRE ASSISTENCIA</strong></li>
+          <li>Must be taken <strong>before travel</strong></li>
+          <li><strong>Outbound</strong> (Kenyan residents travelling abroad) and <strong>Inbound</strong> (non-Kenyan residents coming to Kenya)</li>
+          <li>Coverage limited to <strong>92 consecutive days per trip</strong></li>
+        </ul>
+
+        <h4>Health (Medical) Insurance</h4>
+        <ul>
+          <li>Local and international cover</li>
+          <li>Inpatient and outpatient cover for individuals, families, employees, groups</li>
+          <li>Pre-existing and chronic conditions covered up to an agreed limit</li>
+          <li>Maternity, dental, and optical covers available</li>
+          <li><strong>No co-payment</strong> for inpatient and outpatient</li>
+        </ul>
+
+        <h4>Insurance Premium Financing (IPF)</h4>
+        <ul>
+          <li>Pay insurance premiums in <strong>easy instalments of up to 10 months</strong></li>
+          <li>Open to account holders and non-account holders</li>
+          <li>Available for <strong>general insurance policies</strong> — excludes Life insurance</li>
+          <li>No collateral required</li>
+        </ul>
+
+        <h3>3.7 Custody &amp; Investment Services (Personal)</h3>
+        <p>Licensed by CMA, CDSC, and RBA. Services include:</p>
+        <ul>
+          <li>Central Depository Services (CDS) account opening, maintenance, transfers</li>
+          <li>Fixed income securities trading — government securities (T-bills and T-bonds), corporate bonds</li>
+          <li>Offshore and cross-border investments through Bank One (Mauritius), I&amp;M Bank Tanzania, and I&amp;M Bank Rwanda</li>
+          <li>Nominee services — safekeeping, settlement, portfolio reporting, FX conversion</li>
+          <li><strong>Employee Investment Loan Scheme (EILS)</strong> — employees borrow to invest in treasury bonds, repaid via salary</li>
+        </ul>
+
+        <h3>3.8 Select &amp; Premium Banking</h3>
+        <h4>Select Banking</h4>
+        <ul>
+          <li>Premium relationship banking with dedicated Relationship Managers</li>
+          <li>Eligibility: by <strong>invitation</strong> or by <strong>subscription at KES 2,000/month</strong></li>
+          <li><strong>Pre-approved KES 1,500,000 term loan facility</strong> for personal use</li>
+          <li>Access to dedicated Select Centres (Sarit, Hannover/Riverside) — Mon–Fri 9:00 AM – 4:00 PM</li>
+          <li>Priority queueing, complimentary lounge with free internet</li>
+          <li>Offshore banking via <strong>Bank One Limited</strong> (Mauritius)</li>
+        </ul>
+        <h4>Premium Banking</h4>
+        <ul>
+          <li>Special Club Account, Savings Accounts, Lifestyle Debit and Credit Cards</li>
+          <li><strong>Wealth Management Solutions</strong></li>
+          <li>Offshore banking via Bank One (Mauritius)</li>
+        </ul>
+
+        <h3>3.9 I&amp;M Milele Rewards Programme</h3>
+        <ul>
+          <li><strong>Automatic enrolment</strong> when a card is activated — no separate sign-up</li>
+          <li>Earn up to <strong>2% of transaction amount</strong> in Milele Points</li>
+          <li><strong>1 Milele Point = KES 1</strong> — no cap on points earned</li>
+          <li><strong>Triple points</strong> may apply on international transactions</li>
+        </ul>
+        <h4>Eligible Transactions</h4>
+        <ul>
+          <li>POS purchases, online (e-commerce) purchases, recurring payments (utility bills, subscriptions)</li>
+        </ul>
+        <h4>Excluded Transactions (No Points)</h4>
+        <ul>
+          <li>ATM withdrawals, cash advances, fees, charges, interest, penalties, annual card fees, refunded/reversed transactions</li>
+        </ul>
+        <h4>Redemption Options</h4>
+        <ul>
+          <li><strong>Travel:</strong> 950+ airlines and 700+ hotels worldwide</li>
+          <li><strong>Cashback</strong> to I&amp;M Bank account</li>
+          <li><strong>eVouchers</strong> at 3,000+ local merchants — Carrefour, Textbook Centre, Optica, Naivas, Art Caffe, LC Waikiki</li>
+        </ul>
+        <h4>Voucher Operations (USSD <code>*483*18#</code>)</h4>
+        <ul>
+          <li>Check balance: dial <code>*483*18#</code> — balance shown at top of dialog</li>
+          <li>Redeem at partner merchants: dial <code>*483*18#</code>, choose <strong>Redeem</strong>, enter branch till number, specify amount</li>
+          <li>Partial redemptions allowed</li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- 4. Business Banking -->
+    <div class="doc-section" id="kb-business">
+      <div class="doc-section-header">
+        <span class="section-icon">💼</span>
+        <h2>4. Business Banking</h2>
+        <span class="section-tag">Knowledgebase</span>
+      </div>
+      <div class="doc-section-body">
+
+        <h3>4.1 Business Accounts</h3>
+        <table>
+          <thead><tr><th>Account</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Standard Business Current Account</strong> (KES)</td><td>Designed to create a success story for your business</td></tr>
+            <tr><td><strong>Diplomatic Account</strong></td><td>For embassies, consulates, and diplomatic missions</td></tr>
+            <tr><td><strong>Foreign Currency Business Account</strong></td><td>USD/EUR/GBP and others. Min opening: USD/EUR/GBP 100. Free e-statements.</td></tr>
+            <tr><td><strong>Noble Account</strong></td><td>For NGOs, faith-based organisations, diplomatic missions, membership organisations, registered trusts, self-help groups. Available in KES, USD, GBP, EUR. Includes dedicated Relationship Manager.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>4.2 Business Loans</h3>
+        <ul>
+          <li>Available as <strong>overdrafts</strong> or <strong>term loans</strong></li>
+          <li><strong>Currencies:</strong> Kenya Shillings, USD, GBP, EUR</li>
+          <li><strong>Interest:</strong> Linked to the bank's <strong>Base Lending Rate</strong>, charged quarterly</li>
+          <li>Detailed consultations conducted with each business</li>
+        </ul>
+
+        <h3>4.3 Asset Finance</h3>
+        <p>For both business and personal moveable assets (motor vehicles, machinery, equipment):</p>
+        <ul>
+          <li><strong>Up to 80% financing</strong> on cost over <strong>48 months</strong> for used assets (up to 8 years old)</li>
+          <li><strong>Up to 85% financing</strong> on cost over <strong>60 months</strong> for new assets</li>
+          <li>Direct import finance available through selected dealers</li>
+          <li>Insurance Premium Financing (IPF) available</li>
+          <li>Approved valuation panel: <strong>AA of Kenya</strong> and <strong>Regent</strong></li>
+        </ul>
+
+        <h3>4.4 Trade Finance &amp; Foreign Exchange</h3>
+        <h4>FX Currencies Offered</h4>
+        <p>USD, EUR, GBP, CHF, INR, JPY, ZAR, CNY, AUD, AED, CAD. Regional currencies via I&amp;M presence: RWF, TZS, UGX, MUR.</p>
+        <h4>Services</h4>
+        <ul>
+          <li>Spot and Forward FX deals</li>
+          <li>Vanilla derivatives (e.g., Currency Swaps) for qualifying customers</li>
+          <li><strong>BRISK</strong> — real-time intra-group transfer service (Kenya, Rwanda, Tanzania) in USD, KES, TZS, RWF</li>
+          <li>Daily Treasury Newsletter — subscribe via <strong>treasury@imbank.co.ke</strong></li>
+        </ul>
+        <h4>I&amp;M FX Direct</h4>
+        <ul>
+          <li>Online FX trading platform</li>
+          <li><strong>No I&amp;M Bank account required</strong> to trade</li>
+          <li><strong>No transaction charges</strong></li>
+          <li>Straight Through Processing (STP) — instant order execution</li>
+          <li>Spot and forward deals, smart order placement</li>
+          <li>Web and mobile accessible</li>
+        </ul>
+
+        <h3>4.5 Custody &amp; Investment Services (Business)</h3>
+        <ul>
+          <li>CDS account opening and maintenance</li>
+          <li>Government securities trading (primary and secondary)</li>
+          <li>Corporate bonds and commercial paper trading</li>
+          <li>Located at I&amp;M Bank HQ, 3rd Floor, 1st Parklands Avenue, Nairobi</li>
+          <li>Phone: +254 20 322 1000 / +254 20 322 1001 | Mon–Fri, 9:00 AM – 4:00 PM</li>
+        </ul>
+
+        <h3>4.6 Cash Management &amp; Business Solutions</h3>
+        <ul>
+          <li>Payment collection services</li>
+          <li>Trade finance for East Africa</li>
+          <li>Secure cash transportation</li>
+          <li>Customs Tax Payment Facility — via I-Click Internet Banking and all branches</li>
+        </ul>
+
+        <h3>4.7 Business Insurance (Bancassurance)</h3>
+        <p>Provided through <strong>I&amp;M Bancassurance Intermediary Limited (I&amp;MIL)</strong>. Open to account holders and non-account holders.</p>
+        <h4>Business Combined Policy</h4>
+        <p>A comprehensive package covering: premises (material damage), assets, loss of profits (business interruption), third-party liability, employee injury, money, and employee infidelity.</p>
+
+        <h3>4.8 DEG-I&amp;M German Business Desk</h3>
+        <p>A specialist banking and advisory unit for German businesses operating in the East African region — a partnership between I&amp;M Bank Kenya and <strong>DEG</strong> (German development finance institution). First of its kind between an African bank and DEG; second worldwide after Peru.</p>
+
+      </div>
+    </div>
+
+    <!-- 5. Diaspora Banking -->
+    <div class="doc-section" id="kb-diaspora">
+      <div class="doc-section-header">
+        <span class="section-icon">🌍</span>
+        <h2>5. Diaspora Banking</h2>
+        <span class="section-tag">Knowledgebase</span>
+      </div>
+      <div class="doc-section-body">
+        <p>Services for Kenyans abroad include:</p>
+        <ul>
+          <li><strong>Online Payments / Remittances</strong> — Transfer funds via Visa or Mastercard Debit/Credit cards into an I&amp;M Bank account</li>
+          <li><strong>Diaspora Mortgages</strong> — with Deal Facilitation services (lawyers, valuers, surveyors). Free for diaspora customers signing up for I&amp;M mortgage; facilitation fee for own-funds purchases.</li>
+          <li><strong>Investment &amp; Custody Services</strong> — invest in Kenyan equities, fixed income, and other securities via the Custody Unit</li>
+          <li><strong>Diaspora Insurance</strong> — one-stop shop via I&amp;MIL</li>
+          <li><strong>Funds Transfers</strong> — local and international</li>
+          <li><strong>Overseas agents</strong> — global team for support</li>
+        </ul>
+        <div class="alert alert-info">ℹ️ For specific diaspora FAQs (eligibility, document submission abroad, etc.), direct customers to the dedicated Diaspora Banking team.</div>
+      </div>
+    </div>
+
+    <!-- 6. Digital Banking Channels -->
+    <div class="doc-section" id="kb-digital">
+      <div class="doc-section-header">
+        <span class="section-icon">📱</span>
+        <h2>6. Digital Banking Channels</h2>
+        <span class="section-tag">Knowledgebase</span>
+      </div>
+      <div class="doc-section-body">
+
+        <h3>6.1 I&amp;M On The Go (OTG) — Personal</h3>
+        <p>The bank's flagship personal mobile app and web channel. <strong>Customer must be an I&amp;M Bank Customer to use OTG.</strong></p>
+        <h4>Features</h4>
+        <ul>
+          <li>24/7 account access via mobile app and web</li>
+          <li>View account balance — single-tap balance unlock on the app</li>
+          <li>Stop cheque, lock/unlock card (temporary block)</li>
+          <li><strong>Send money to M-PESA free of charge</strong> from an I&amp;M Bank personal account</li>
+          <li>Joint approver support — 2 joint approvers for joint account holders</li>
+          <li><strong>Authentication:</strong> SMS, email, or Google Authenticator</li>
+          <li><strong>Service Guarantee:</strong> Cash compensation if RTGS or SWIFT transfers fail (T&amp;Cs apply)</li>
+          <li>USSD via <code>*458#</code> (separate registration required)</li>
+        </ul>
+        <h4>Registration</h4>
+        <p>Download the app from the Play Store / App Store, or visit the OTG web link. Use the email registered on the I&amp;M Bank account.</p>
+
+        <h3>6.2 OTG Business</h3>
+        <p>The business equivalent of OTG, supporting business banking on mobile and web.</p>
+
+        <h3>6.3 I-Click Internet Banking</h3>
+        <h4>Retail i-Click</h4>
+        <ul>
+          <li>Full-featured 24/7 internet banking</li>
+          <li>Single hub for accounts, loans, cards, and other services</li>
+        </ul>
+        <h4>Corporate i-Click</h4>
+        <ul>
+          <li>Supports single and bulk payments</li>
+          <li><strong>Maker-checker workflow</strong> — multi-level authorisation</li>
+          <li>Per-user transactional limits</li>
+          <li>Two-factor authentication (User ID + password + OTP)</li>
+          <li>Audit trails for transactions</li>
+        </ul>
+
+        <h3>6.4 USSD (<code>*458#</code>)</h3>
+        <p>USSD-based banking service. Separate registration required.</p>
+
+        <h3>6.5 M-PESA Xpress</h3>
+        <p>Enables M-PESA users to pay credit card bills, transfer to I&amp;M Bank accounts, and top-up Prepaid Cards.</p>
+        <h4>Process to Pay Credit Card via M-PESA Xpress</h4>
+        <ol>
+          <li>Visit the Online Services section on the I&amp;M Bank Home Page</li>
+          <li>Select <strong>M-PESA Xpress</strong></li>
+          <li>Enter the <strong>16-digit Credit Card Number</strong> and amount to pay</li>
+          <li>Input mobile phone number</li>
+          <li>Pop-up appears on the phone — enter M-PESA PIN to complete</li>
+          <li>Ensure the phone screen is unlocked to receive the prompt</li>
+        </ol>
+
+        <h3>6.6 Custody Online &amp; I&amp;M FX Direct</h3>
+        <ul>
+          <li><strong>Custody Online</strong> — for custody clients to manage investment &amp; custody accounts</li>
+          <li><strong>I&amp;M FX Direct</strong> — online FX trading platform (see §4.4)</li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- 7. Branches & ATMs -->
+    <div class="doc-section" id="kb-branches">
+      <div class="doc-section-header">
+        <span class="section-icon">🏢</span>
+        <h2>7. Branches &amp; ATMs</h2>
+        <span class="section-tag">Knowledgebase</span>
+      </div>
+      <div class="doc-section-body">
+        <p>Branches are located across Kenya with a <strong>24-hour ATM</strong> at each branch. I&amp;M Bank also runs an <strong>Agency Banking platform</strong> through partnerships with agent outlets across Kenya.</p>
+        <h3>Counties with Branch Coverage</h3>
+        <p>Nairobi, Mombasa, Nakuru, Kisumu, Uasin Gishu, Trans-Nzoia, Nyeri, Nyandarua, Narok, Nandi, Murang'a, Migori, Meru, Makueni, Machakos, Laikipia, Kwale, Kitui, and others.</p>
+        <div class="alert alert-info">ℹ️ For operating hours and the full branch list, refer customers to the branch locator at <a href="https://www.imbankgroup.com/ke/atms-branches/branches/" target="_blank">imbankgroup.com/ke/atms-branches/branches/</a> — operating hours may vary and should be verified before visiting.</div>
+      </div>
+    </div>
+
+    <!-- 8. Key FAQs (Knowledgebase) -->
+    <div class="doc-section" id="kb-faqs">
+      <div class="doc-section-header">
+        <span class="section-icon">❓</span>
+        <h2>8. Key FAQs</h2>
+        <span class="section-tag">Knowledgebase</span>
+      </div>
+      <div class="doc-section-body">
+
+        <h3>8.1 Loans</h3>
+        <div class="faq-item"><div class="faq-q">How do I apply for a loan?</div><div class="faq-a">Log in to the I&amp;M Bank OTG mobile app or web service. Opt in to the loan service by accepting the Terms &amp; Conditions (first-time access). Then proceed to apply. If you face difficulties, visit your nearest branch.</div></div>
+        <div class="faq-item"><div class="faq-q">What's the minimum and maximum unsecured personal loan via OTG?</div><div class="faq-a">Min KES 50,000, max KES 3,000,000 — depending on eligibility and the limit assigned. Check your limit on the OTG app or web in the loan section.</div></div>
+        <div class="faq-item"><div class="faq-q">What are the unsecured personal loan charges?</div><div class="faq-a">Processing fee 4% (one-off), excise duty 20% on the processing fee, credit life insurance premium 0.035%, and PHCF at 0.25% of the credit life premium. The interest rate varies per customer.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I apply for a Short-Term Loan if I have other loans?</div><div class="faq-a">Yes — provided you remain eligible.</div></div>
+        <div class="faq-item"><div class="faq-q">What are the Short-Term Loan amounts and tenures?</div><div class="faq-a">Amounts: KES 1,000 – KES 300,000. Tenures: 1, 3, or 6 months. Monthly instalments apply only to the 3- and 6-month options.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I prepay my loan?</div><div class="faq-a">Yes — tap "Repay Loan" on the I&amp;M OTG App home screen, or via web services.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I top up my loan?</div><div class="faq-a">Yes — available to customers who have serviced their current loan instalments on time for 6 months and meet top-up criteria. Apply via the OTG app.</div></div>
+        <div class="faq-item"><div class="faq-q">Do I need a KES account for the loan?</div><div class="faq-a">Yes — a Kenyan Shilling account is required for disbursement, and the instalment is recovered from your operating account on the due date.</div></div>
+
+        <h3>8.2 Mortgages — Miliki Nyumba</h3>
+        <div class="faq-item"><div class="faq-q">What's the interest rate for Miliki Nyumba?</div><div class="faq-a">Fixed at 9.5% for the duration of the mortgage facility, up to 20 years (subject to retirement age).</div></div>
+        <div class="faq-item"><div class="faq-q">Can I use my existing plot toward the 10% contribution?</div><div class="faq-a">Yes — that plot can form part of your 10% contribution. However, if there was a loan on the plot, the loans cannot be combined.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I take more than one Miliki Nyumba loan?</div><div class="faq-a">No. Only one loan, and you must indicate it's a first-time homeowner application.</div></div>
+        <div class="faq-item"><div class="faq-q">How long do I have to repay a mortgage?</div><div class="faq-a">Up to 20 years for KES mortgages and up to 10 years for USD/EUR mortgages. The Weighted Average Life of mortgages is 8–9 years, so most loans are cleared earlier.</div></div>
+
+        <h3>8.3 Cards &amp; Milele Rewards</h3>
+        <div class="faq-item"><div class="faq-q">How do I enrol in the Milele Rewards Programme?</div><div class="faq-a">Enrolment is automatic when you receive and activate your I&amp;M Bank Debit or Credit Card. No separate sign-up.</div></div>
+        <div class="faq-item"><div class="faq-q">What's the value of Milele Points?</div><div class="faq-a">1 Milele Point = KES 1.</div></div>
+        <div class="faq-item"><div class="faq-q">Will I lose my Milele Points if my card is lost or stolen?</div><div class="faq-a">No — points remain in your account. Report the lost/stolen card immediately for security; once a replacement is issued, points are accessible again.</div></div>
+        <div class="faq-item"><div class="faq-q">How do I check my voucher balance?</div><div class="faq-a">Dial <code>*483*18#</code> — the balance appears at the top of the dialog box.</div></div>
+
+        <h3>8.4 Digital Channels</h3>
+        <div class="faq-item"><div class="faq-q">How do I register for I&amp;M On The Go (OTG)?</div><div class="faq-a">You must be an I&amp;M Bank Customer. Download the app from your App Store, or visit the web link. Register as a new user using your registered email; if you used a previous I&amp;M mobile banking system, choose "forgot password" instead.</div></div>
+        <div class="faq-item"><div class="faq-q">Is sending to M-PESA free?</div><div class="faq-a">Yes — sending money from an I&amp;M Bank personal account to an M-PESA number is free of charge.</div></div>
+        <div class="faq-item"><div class="faq-q">Does I&amp;M offer cash compensation for failed transfers?</div><div class="faq-a">Yes — under the OTG Service Guarantee, if I&amp;M fails to execute an Outgoing International (TT) or RTGS Local Transfer through the OTG Mobile/Web App due to an error on the bank's part, the bank proactively compensates the customer (T&amp;Cs apply).</div></div>
+
+      </div>
+    </div>
+
+    <!-- 9. Glossary -->
+    <div class="doc-section" id="kb-glossary">
+      <div class="doc-section-header">
+        <span class="section-icon">📖</span>
+        <h2>9. Glossary</h2>
+        <span class="section-tag">Knowledgebase</span>
+      </div>
+      <div class="doc-section-body">
+        <table>
+          <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><strong>OTG</strong></td><td>I&amp;M On The Go — the bank's flagship personal mobile/web banking platform</td></tr>
+            <tr><td><strong>i-Click</strong></td><td>I&amp;M's internet banking platform, retail and corporate variants</td></tr>
+            <tr><td><strong>KES / KSh</strong></td><td>Kenya Shillings</td></tr>
+            <tr><td><strong>CRB</strong></td><td>Credit Reference Bureau</td></tr>
+            <tr><td><strong>CBK</strong></td><td>Central Bank of Kenya — the bank's primary regulator</td></tr>
+            <tr><td><strong>CMA</strong></td><td>Capital Markets Authority</td></tr>
+            <tr><td><strong>CDSC</strong></td><td>Central Depository &amp; Settlements Corporation</td></tr>
+            <tr><td><strong>CDA</strong></td><td>Central Depository Agent</td></tr>
+            <tr><td><strong>CDS</strong></td><td>Central Depository Services</td></tr>
+            <tr><td><strong>RBA</strong></td><td>Retirement Benefits Authority</td></tr>
+            <tr><td><strong>NSE</strong></td><td>Nairobi Securities Exchange</td></tr>
+            <tr><td><strong>PHCF</strong></td><td>Policy Holders Compensation Fund</td></tr>
+            <tr><td><strong>IPF</strong></td><td>Insurance Premium Financing</td></tr>
+            <tr><td><strong>I&amp;MIL</strong></td><td>I&amp;M Bancassurance Intermediary Limited</td></tr>
+            <tr><td><strong>BNPL</strong></td><td>Buy Now Pay Later</td></tr>
+            <tr><td><strong>EILS</strong></td><td>Employee Investment Loan Scheme</td></tr>
+            <tr><td><strong>WAL</strong></td><td>Weighted Average Life (of a mortgage)</td></tr>
+            <tr><td><strong>RTGS</strong></td><td>Real-Time Gross Settlement (high-value local transfer)</td></tr>
+            <tr><td><strong>SWIFT / TT</strong></td><td>International telegraphic transfer</td></tr>
+            <tr><td><strong>POS</strong></td><td>Point of Sale (card terminal)</td></tr>
+            <tr><td><strong>STP</strong></td><td>Straight-Through Processing</td></tr>
+            <tr><td><strong>BRISK</strong></td><td>I&amp;M's intra-group real-time transfer service across Kenya, Tanzania, and Rwanda</td></tr>
+            <tr><td><strong>Boma Yangu</strong></td><td>Government of Kenya affordable housing programme</td></tr>
+            <tr><td><strong>Miliki Nyumba</strong></td><td>I&amp;M's affordable housing mortgage product, aligned to Boma Yangu</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 10. Out of Scope -->
+    <div class="doc-section" id="kb-outofscope">
+      <div class="doc-section-header">
+        <span class="section-icon">🚫</span>
+        <h2>10. Explicitly Out of Scope / Escalation</h2>
+        <span class="section-tag">Knowledgebase</span>
+      </div>
+      <div class="doc-section-body">
+        <p>The bot must <strong>NOT</strong> answer or guess on the following — escalate to the Call Centre or relevant team:</p>
+        <table>
+          <thead><tr><th>Topic</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Specific exchange rates / FX quotes</td><td>Direct to <strong>I&amp;M FX Direct</strong> or call <strong>+254 20 322 1000</strong></td></tr>
+            <tr><td>Specific interest rates for loans/mortgages</td><td>Direct to branch or relationship manager</td></tr>
+            <tr><td>Specific branch operating hours on a given day</td><td>Direct to branch locator or call +254 20 322 1000</td></tr>
+            <tr><td>Account-specific balances, statements, or transactions</td><td>Direct to OTG app/web or call Customer Care</td></tr>
+            <tr><td>KYC outcomes / approval status of any application</td><td>Direct to the branch handling the application</td></tr>
+            <tr><td>Card/account blocking or unblocking</td><td>Direct to <strong>+254 719 088 000 / 0800 721 088</strong></td></tr>
+            <tr><td>Lost/stolen card reporting</td><td>Direct to <strong>+254 719 088 000 / 0800 721 088</strong> immediately</td></tr>
+            <tr><td>Suspected fraud / phishing</td><td>Direct to <strong>+254 719 088 000</strong> immediately</td></tr>
+            <tr><td>Legal interpretations of T&amp;Cs</td><td>Direct to a Relationship Manager or visit imbankgroup.com/ke/terms-and-conditions/</td></tr>
+            <tr><td>Tax, KRA, or regulatory advice</td><td>Direct to a qualified professional</td></tr>
+            <tr><td>Investment recommendations / market predictions</td><td>Direct to a Custody &amp; Investment Services advisor</td></tr>
+            <tr><td>Detailed BNPL merchant lists, repayment schedules, or specific BNPL fees</td><td>Direct to OTG app or call +254 20 322 1000</td></tr>
+            <tr><td>Group-level financial results / shareholder enquiries</td><td>Direct to imbankgroup.com/ke/about-us/investor-relations/</td></tr>
+            <tr><td>Anything not contained in this document</td><td>Use fallback response: "I don't have specific information on that in my reference material. For an accurate answer, please call I&amp;M Bank Customer Care on +254 20 322 1000 or +254 719 088 000, email customercare@imbank.co.ke, or visit your nearest branch."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         SECTION: PRODUCTS SUMMARY
+    ══════════════════════════════════════════ -->
+    <div class="doc-section" id="products">
+      <div class="doc-section-header">
+        <span class="section-icon">📋</span>
+        <h2>Products Summary</h2>
+        <span class="section-tag">Reference</span>
+      </div>
+      <div class="doc-section-body">
+
+        <h2>Personal Banking</h2>
+
+        <h3>💰 Accounts</h3>
+        <ul>
+          <li><strong>Club Account</strong> — flat-fee transaction account</li>
+          <li><strong>PayGo Account</strong> — pay-as-you-go transaction account</li>
+          <li><strong>I&amp;M Savers Account</strong> — flexible savings</li>
+          <li><strong>Children's Savings Account</strong> — savings for kids</li>
+          <li><strong>Sapphire FCY Account</strong> — foreign currency account (8 currencies)</li>
+          <li><strong>Foreign Currency Account</strong> — USD, GBP, EUR, and regional currencies</li>
+        </ul>
+
+        <h3>💳 Cards</h3>
+        <h4>Credit Cards</h4>
+        <ul>
+          <li>KES 0 joining fee on featured products</li>
+          <li>Up to 50 days interest-free</li>
+          <li>Premium tiers include lounge access, travel insurance</li>
+          <li>Earn Milele Points on POS and online spend</li>
+        </ul>
+        <h4>Debit Cards</h4>
+        <ul>
+          <li>KES 0 annual fees on featured products</li>
+          <li>Unlimited airport lounge access</li>
+          <li>Earn cash rewards</li>
+          <li>1M+ ATMs in 210+ countries</li>
+        </ul>
+        <h4>Prepaid Cards</h4>
+        <ul>
+          <li><strong>Multicurrency Card</strong> — USD 10 issuance, USD/GBP/EUR</li>
+          <li><strong>Travel Card (USD)</strong> — USD 8 issuance</li>
+          <li><strong>Safari Card</strong> — KES, no minimum load</li>
+        </ul>
+
+        <h3>🏦 Loans</h3>
+        <table>
+          <thead><tr><th>Product</th><th>Amount</th><th>Tenure</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Unsecured Personal (Branch)</td><td>Up to KES 300,000</td><td>1–60 months</td><td>24-hour processing</td></tr>
+            <tr><td>Unsecured Personal (OTG)</td><td>KES 50,000–3,000,000</td><td>6–36 months</td><td>4% processing fee, 20% excise duty</td></tr>
+            <tr><td>Short-Term Loan</td><td>KES 1,000–300,000</td><td>1, 3, or 6 months</td><td>Instant disbursement via OTG app</td></tr>
+            <tr><td>I&amp;M@Work Loan</td><td>Up to KES 10 million</td><td>Up to 96 months</td><td>Via employer scheme</td></tr>
+            <tr><td>Mortgage (KES)</td><td>—</td><td>Up to 20 years</td><td>Residential or commercial</td></tr>
+            <tr><td>Mortgage (USD/EUR)</td><td>—</td><td>Up to 10 years</td><td>Foreign currency</td></tr>
+            <tr><td>Miliki Nyumba</td><td>Homes up to KES 10.5M</td><td>Up to 20 years</td><td>Fixed 9.5% rate, 10% contribution</td></tr>
+            <tr><td>Buy Now Pay Later (BNPL)</td><td>—</td><td>Flexible</td><td>Existing I&amp;M customers, via OTG app</td></tr>
+          </tbody>
+        </table>
+
+        <h3>🛡️ Insurance (Bancassurance)</h3>
+        <ul>
+          <li><strong>Motor Insurance</strong> — own damage, theft, fire, third-party liability</li>
+          <li><strong>Travel Insurance</strong> — Outbound/Inbound, annual or single-trip, up to 92 days per trip</li>
+          <li><strong>Health Insurance</strong> — inpatient, outpatient, no co-payment</li>
+          <li><strong>Other:</strong> Education Plan, Golfer's Insurance</li>
+          <li><strong>Insurance Premium Financing (IPF)</strong> — pay premiums in 10 instalments</li>
+        </ul>
+
+        <h3>💎 Investment &amp; Custody Services</h3>
+        <ul>
+          <li>Central Depository Services (CDS)</li>
+          <li>Government securities trading (T-bills, T-bonds)</li>
+          <li>Corporate bonds &amp; commercial paper</li>
+          <li>Employee Investment Loan Scheme (EILS)</li>
+          <li>Offshore investments via Bank One (Mauritius)</li>
+        </ul>
+
+        <h3>⭐ Loyalty &amp; Rewards</h3>
+        <p><strong>I&amp;M Milele Rewards</strong> — Automatic enrolment with card activation</p>
+        <ul>
+          <li>Up to 2% points on POS and online purchases</li>
+          <li>1 Milele Point = KES 1</li>
+          <li>Redeem for: Travel (950+ airlines, 700+ hotels), cashback, eVouchers (3,000+ merchants)</li>
+          <li>Voucher balance: dial <code>*483*18#</code></li>
+        </ul>
+
+        <h3>🌟 Premium Services</h3>
+        <h4>Select Banking</h4>
+        <ul>
+          <li>Dedicated Relationship Manager</li>
+          <li>Eligibility by invitation or KES 2,000/month subscription</li>
+          <li>Pre-approved KES 1,500,000 loan facility</li>
+          <li>Select Centres (Sarit, Hannover/Riverside)</li>
+          <li>Priority queueing, lounge access</li>
+        </ul>
+        <h4>Premium Banking</h4>
+        <ul>
+          <li>Special Club Account, Lifestyle cards</li>
+          <li>Wealth Management Solutions</li>
+          <li>Offshore banking</li>
+        </ul>
+
+        <hr>
+
+        <h2>Business Banking</h2>
+
+        <h3>💼 Accounts</h3>
+        <ul>
+          <li><strong>Standard Business Current Account</strong> (KES)</li>
+          <li><strong>Diplomatic Account</strong> (embassies, consulates)</li>
+          <li><strong>Foreign Currency Business Account</strong> (USD/EUR/GBP, min 100)</li>
+          <li><strong>Noble Account</strong> (NGOs, faith-based, trusts, self-help groups)</li>
+        </ul>
+
+        <h3>📊 Loans</h3>
+        <ul>
+          <li>Business Loans — overdrafts or term loans</li>
+          <li>Interest linked to Base Lending Rate</li>
+          <li>Available in KES, USD, GBP, EUR</li>
+        </ul>
+
+        <h3>🚗 Asset Finance</h3>
+        <ul>
+          <li>Motor vehicles, machinery, equipment</li>
+          <li>Up to 80% financing (used, 48 months)</li>
+          <li>Up to 85% financing (new, 60 months)</li>
+          <li>Direct import finance via selected dealers</li>
+        </ul>
+
+        <h3>💱 Trade Finance &amp; FX</h3>
+        <ul>
+          <li><strong>Currencies:</strong> USD, EUR, GBP, CHF, JPY, INR, ZAR, CNY, AUD, AED, CAD (+ regional)</li>
+          <li><strong>Services:</strong> Spot &amp; forward deals, vanilla derivatives, currency swaps</li>
+          <li><strong>BRISK</strong> — real-time intra-group transfers (Kenya, Rwanda, Tanzania)</li>
+          <li><strong>I&amp;M FX Direct</strong> — online FX trading (no account needed, no charges)</li>
+        </ul>
+
+        <h3>🛡️ Business Insurance</h3>
+        <ul>
+          <li><strong>Business Combined Policy</strong> — premises, assets, liability, employee injury, money, infidelity</li>
+          <li>Insurance Premium Financing available</li>
+        </ul>
+
+        <hr>
+
+        <h2>Diaspora Banking</h2>
+        <ul>
+          <li><strong>Online Remittances</strong> — via Visa/Mastercard into I&amp;M account</li>
+          <li><strong>Diaspora Mortgages</strong> — free Deal Facilitation (lawyers, valuers) for I&amp;M mortgage customers</li>
+          <li><strong>Investment &amp; Custody Services</strong> — invest in Kenyan equities, fixed income</li>
+          <li><strong>Diaspora Insurance</strong> — one-stop shop via I&amp;MIL</li>
+          <li><strong>Funds Transfers</strong> — local and international</li>
+          <li><strong>Overseas Support Team</strong> — global diaspora support</li>
+        </ul>
+
+        <hr>
+
+        <h2>Digital Banking</h2>
+        <table>
+          <thead><tr><th>Platform</th><th>Type</th><th>Features</th></tr></thead>
+          <tbody>
+            <tr><td><strong>I&amp;M On The Go (OTG)</strong></td><td>Mobile &amp; Web</td><td>24/7 access, balance, payments, loans, card lock/unlock</td></tr>
+            <tr><td><strong>i-Click (Retail)</strong></td><td>Web</td><td>Full banking hub, accounts, loans, cards</td></tr>
+            <tr><td><strong>i-Click (Corporate)</strong></td><td>Web</td><td>Bulk payments, maker-checker, audit trails</td></tr>
+            <tr><td><strong>USSD <code>*458#</code></strong></td><td>Dial</td><td>Banking via phone (registration required)</td></tr>
+            <tr><td><strong>M-PESA Xpress</strong></td><td>USSD &amp; Web</td><td>Pay credit cards, transfers, prepaid top-ups</td></tr>
+            <tr><td><strong>I&amp;M FX Direct</strong></td><td>Web &amp; Mobile</td><td>Online FX trading, spot &amp; forward deals</td></tr>
+            <tr><td><strong>Custody Online</strong></td><td>Web</td><td>Investment &amp; custody account management</td></tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         SECTION: FAQs
+    ══════════════════════════════════════════ -->
+    <div class="doc-section" id="faqs">
+      <div class="doc-section-header">
+        <span class="section-icon">💬</span>
+        <h2>Frequently Asked Questions</h2>
+        <span class="section-tag">Reference</span>
+      </div>
+      <div class="doc-section-body">
+
+        <h3>Loans &amp; Borrowing</h3>
+        <div class="faq-item"><div class="faq-q">How do I apply for a loan?</div><div class="faq-a">Log in to I&amp;M OTG mobile app or web service, accept Terms &amp; Conditions, view your loan limit, and apply. Visit your branch if you need help.</div></div>
+        <div class="faq-item"><div class="faq-q">What's the range for unsecured personal loans?</div><div class="faq-a">Min KES 50,000 to max KES 3,000,000 (depends on eligibility). Tenure: 6 to 36 months.</div></div>
+        <div class="faq-item"><div class="faq-q">Why did my loan limit change?</div><div class="faq-a">Limits are reviewed periodically based on account activity, CRB status, repayment history, and product rules.</div></div>
+        <div class="faq-item"><div class="faq-q">What are the charges on OTG personal loans?</div><div class="faq-a">Processing fee: 4% (one-off). Excise duty: 20% on the processing fee. Credit life insurance: 0.035%. PHCF: 0.25% of the credit life premium. Interest rate: varies per customer.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I apply for a Short-Term Loan if I have other loans?</div><div class="faq-a">Yes, if you remain eligible.</div></div>
+        <div class="faq-item"><div class="faq-q">What are Short-Term Loan amounts and tenures?</div><div class="faq-a">Amounts: KES 1,000–300,000. Tenures: 1, 3, or 6 months (instalments for 3 &amp; 6 months only).</div></div>
+        <div class="faq-item"><div class="faq-q">Can I prepay my loan?</div><div class="faq-a">Yes — tap "Repay Loan" on OTG app or use web services.</div></div>
+        <div class="faq-item"><div class="faq-q">What if I miss a payment?</div><div class="faq-a">You'll incur additional fees and interest. Ensure funds are available on the due date.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I top up my loan?</div><div class="faq-a">Yes — after 6 months of timely repayments, apply via OTG app if you meet top-up criteria.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I opt out of the loan service?</div><div class="faq-a">Yes, anytime when you have no open loan.</div></div>
+        <div class="faq-item"><div class="faq-q">Do I need a KES account?</div><div class="faq-a">Yes — a Kenyan Shilling account is required for disbursement and instalment recovery.</div></div>
+        <div class="faq-item"><div class="faq-q">What if I dispute a CRB report?</div><div class="faq-a">Contact the CRB that issued the report; they'll reach out to I&amp;M to rectify errors.</div></div>
+
+        <h3>Mortgages &amp; Miliki Nyumba</h3>
+        <div class="faq-item"><div class="faq-q">What's the interest rate for Miliki Nyumba?</div><div class="faq-a">Fixed at 9.5% for the duration, up to 20 years (subject to retirement age).</div></div>
+        <div class="faq-item"><div class="faq-q">Can I use my existing plot toward the 10% contribution?</div><div class="faq-a">Yes — an existing plot can count toward the 10% contribution, but loans on that plot cannot be combined.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I take more than one Miliki Nyumba loan?</div><div class="faq-a">No — only one loan per first-time homeowner.</div></div>
+        <div class="faq-item"><div class="faq-q">Can Miliki Nyumba be combined with other loans?</div><div class="faq-a">No — it must be taken and paid independently.</div></div>
+        <div class="faq-item"><div class="faq-q">What properties are eligible for Miliki Nyumba?</div><div class="faq-a">Homes from Boma Yangu website, any developed home up to KES 10.5M, or self-construction (residential only).</div></div>
+        <div class="faq-item"><div class="faq-q">How long can I take to repay a mortgage?</div><div class="faq-a">Up to 20 years (KES); up to 10 years (USD/EUR). Average life: 8–9 years.</div></div>
+
+        <h3>Cards &amp; Milele Rewards</h3>
+        <div class="faq-item"><div class="faq-q">How do I enrol in Milele Rewards?</div><div class="faq-a">Automatic enrolment when you activate your I&amp;M Debit or Credit Card — no separate sign-up.</div></div>
+        <div class="faq-item"><div class="faq-q">Which transactions earn points?</div><div class="faq-a">POS purchases, online (e-commerce), and recurring payments (bills, subscriptions).</div></div>
+        <div class="faq-item"><div class="faq-q">Which transactions don't earn points?</div><div class="faq-a">ATM withdrawals, cash advances, fees, interest, penalties, annual card fees, refunded/reversed transactions.</div></div>
+        <div class="faq-item"><div class="faq-q">What's the value of Milele Points?</div><div class="faq-a">1 Milele Point = KES 1.</div></div>
+        <div class="faq-item"><div class="faq-q">Do international purchases earn points?</div><div class="faq-a">Yes — and you may earn triple points on international transactions.</div></div>
+        <div class="faq-item"><div class="faq-q">Will I lose points if my card is lost/stolen?</div><div class="faq-a">No — points remain in your account. Report immediately; points become accessible once replacement is issued.</div></div>
+        <div class="faq-item"><div class="faq-q">How do I check my voucher balance?</div><div class="faq-a">Dial <code>*483*18#</code> — balance shown at top of dialog.</div></div>
+        <div class="faq-item"><div class="faq-q">Where can I redeem Milele Points?</div><div class="faq-a">Travel (950+ airlines, 700+ hotels), cashback to I&amp;M account, eVouchers at 3,000+ merchants (Carrefour, Naivas, Textbook Centre, Optica, Art Caffe, LC Waikiki, etc.).</div></div>
+
+        <h3>Accounts &amp; Cards</h3>
+        <div class="faq-item"><div class="faq-q">What documents do I need for a Foreign Currency Account?</div><div class="faq-a">Kenyan Citizen: National ID or Passport + photo. Foreign National: Passport + Work Permit/Dependent Pass + photo.</div></div>
+        <div class="faq-item"><div class="faq-q">What's required for a Prepaid Card?</div><div class="faq-a">Application form, ID (original + copy), KRA PIN copy, passport photo. Indicate purpose, use, and frequency.</div></div>
+        <div class="faq-item"><div class="faq-q">Can non-account holders use I&amp;M services?</div><div class="faq-a">Yes — Bancassurance, Insurance Premium Financing, and I&amp;M FX Direct don't require an I&amp;M account.</div></div>
+
+        <h3>Digital Channels</h3>
+        <div class="faq-item"><div class="faq-q">How do I register for I&amp;M On The Go (OTG)?</div><div class="faq-a">Download from App Store/Play Store or visit web link. Register with your I&amp;M-registered email. If upgrading from old system, use "forgot password".</div></div>
+        <div class="faq-item"><div class="faq-q">How do I authenticate transactions on OTG?</div><div class="faq-a">Via SMS, email, or Google Authenticator.</div></div>
+        <div class="faq-item"><div class="faq-q">Does OTG support joint approvers?</div><div class="faq-a">Yes — for joint account holders, two joint approvers can authorize transactions.</div></div>
+        <div class="faq-item"><div class="faq-q">Does I&amp;M offer compensation for failed transfers?</div><div class="faq-a">Yes — under OTG Service Guarantee, if I&amp;M fails to execute an International (TT) or RTGS Local Transfer due to bank error, compensation applies (T&amp;Cs).</div></div>
+        <div class="faq-item"><div class="faq-q">Is sending to M-PESA free?</div><div class="faq-a">Yes — sending from your I&amp;M Bank personal account to M-PESA is free.</div></div>
+
+        <h3>Insurance</h3>
+        <div class="faq-item"><div class="faq-q">How long is travel insurance coverage per trip?</div><div class="faq-a">Up to 92 consecutive days per trip, even with annual policies.</div></div>
+        <div class="faq-item"><div class="faq-q">Can non-residents get travel cover?</div><div class="faq-a">Yes — via Inbound travel insurance for visitors to Kenya.</div></div>
+        <div class="faq-item"><div class="faq-q">What does health insurance cover?</div><div class="faq-a">Inpatient, outpatient, pre-existing conditions (up to agreed limit), maternity, dental, optical. No co-payment for inpatient/outpatient.</div></div>
+        <div class="faq-item"><div class="faq-q">What does motor insurance cover?</div><div class="faq-a">Accidental own damage, theft, fire, and third-party liability.</div></div>
+
+        <h3>Buy Now Pay Later</h3>
+        <div class="faq-item"><div class="faq-q">How do I apply for Buy Now Pay Later?</div><div class="faq-a">Apply via I&amp;M OTG app or web services (existing I&amp;M customers only).</div></div>
+        <div class="faq-item"><div class="faq-q">How does payment work at outlets?</div><div class="faq-a">I&amp;M Bank pays the merchant on your behalf; you repay the bank over a flexible predetermined period.</div></div>
+
+        <h3>Investments &amp; Custody</h3>
+        <div class="faq-item"><div class="faq-q">What's the Employee Investment Loan Scheme (EILS)?</div><div class="faq-a">A scheme letting employees borrow from I&amp;M to invest in treasury bonds, with repayment via salary and the bond as security.</div></div>
+        <div class="faq-item"><div class="faq-q">What services does Custody offer?</div><div class="faq-a">Central Depository Services (CDS), government securities, corporate bonds, offshore investments, nominee services, corporate actions.</div></div>
+
+        <h3>General</h3>
+        <div class="faq-item"><div class="faq-q">Who regulates I&amp;M Bank?</div><div class="faq-a">Central Bank of Kenya (CBK). Also licensed by CMA, CDSC, and RBA for custody/investment services.</div></div>
+        <div class="faq-item"><div class="faq-q">What are I&amp;M Bank's mission and values?</div><div class="faq-a">Mission: "Partners of growth for all stakeholders." Values: Customer focus, employee development, shareholder value, fairness.</div></div>
+        <div class="faq-item"><div class="faq-q">When was I&amp;M Bank founded?</div><div class="faq-a">Founded in 1974 as Investments &amp; Mortgages Limited; converted to commercial bank 1 April 1996.</div></div>
+        <div class="faq-item"><div class="faq-q">Is I&amp;M Bank listed?</div><div class="faq-a">Yes — I&amp;M Bank is a subsidiary of I&amp;M Group PLC, listed on the Nairobi Securities Exchange (NSE).</div></div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         SECTION: ESCALATION MATRIX
+    ══════════════════════════════════════════ -->
+    <div class="doc-section" id="escalation">
+      <div class="doc-section-header">
+        <span class="section-icon">🚨</span>
+        <h2>Escalation Matrix</h2>
+        <span class="section-tag">Reference</span>
+      </div>
+      <div class="doc-section-body">
+
+        <div class="alert alert-danger">🚨 <strong>IMMEDIATE ESCALATION — Do Not Delay</strong></div>
+
+        <h3>Fraud &amp; Security Issues</h3>
+        <table>
+          <thead><tr><th>Issue</th><th>Action</th><th>Contact</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Lost or stolen card</strong></td><td>Escalate immediately</td><td>+254 719 088 000 (primary)</td></tr>
+            <tr><td><strong>Card fraud / unauthorized charges</strong></td><td>Escalate immediately</td><td>+254 20 322 1000</td></tr>
+            <tr><td><strong>Phishing / suspicious email</strong></td><td>Escalate immediately</td><td>0800 721 088</td></tr>
+            <tr><td><strong>Account compromise</strong></td><td>Escalate immediately</td><td>Nearest branch</td></tr>
+          </tbody>
+        </table>
+        <blockquote>"Please call I&amp;M immediately at +254 719 088 000 or 0800 721 088 to report this. Do not share any sensitive information with anyone."</blockquote>
+
+        <h3>⏱️ Urgent Escalation (Within 24 Hours)</h3>
+        <table>
+          <thead><tr><th>Issue</th><th>Action</th><th>Contact</th></tr></thead>
+          <tbody>
+            <tr><td>Loan application status (pending 48+ hrs)</td><td>Escalate to branch</td><td>Call +254 20 322 1000</td></tr>
+            <tr><td>Card blocking/unblocking needed</td><td>Escalate to security</td><td>+254 719 088 000 or 0800 721 088</td></tr>
+            <tr><td>Account access issues</td><td>Escalate to tech support</td><td>+254 20 322 1000</td></tr>
+            <tr><td>Transfer failed unexpectedly</td><td>Escalate to operations</td><td>+254 20 322 1000</td></tr>
+          </tbody>
+        </table>
+
+        <h3>📋 Out-of-Scope Topics (Use Fallback Response)</h3>
+
+        <h4>Financial &amp; Legal Advice</h4>
+        <table>
+          <thead><tr><th>Query</th><th>Response</th><th>Route To</th></tr></thead>
+          <tbody>
+            <tr><td>"Should I take a personal loan or mortgage?"</td><td>"I can't advise on which product suits you. Please speak with a Relationship Manager."</td><td>Branch or +254 20 322 1000</td></tr>
+            <tr><td>"How should I invest my money?"</td><td>"I can't make investment recommendations. Speak with our Custody &amp; Investment Services team."</td><td>+254 20 322 1000</td></tr>
+            <tr><td>"What are the tax implications?"</td><td>"Tax questions should be addressed to a qualified tax professional, not the bank."</td><td>Tax advisor / KRA</td></tr>
+            <tr><td>"Is this clause in the T&amp;Cs legal for me?"</td><td>"For legal interpretation, contact a qualified lawyer or speak with our Relationship Manager."</td><td>Lawyer or branch</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Market &amp; Rate Information</h4>
+        <table>
+          <thead><tr><th>Query</th><th>Response</th><th>Route To</th></tr></thead>
+          <tbody>
+            <tr><td>"What's the current KES/USD rate?"</td><td>"Exchange rates change constantly. Check I&amp;M FX Direct or call our Treasury team."</td><td>I&amp;M FX Direct or treasury@imbank.co.ke</td></tr>
+            <tr><td>"What's the best mortgage rate today?"</td><td>"For current rates, please call +254 20 322 1000 or visit your branch."</td><td>Branch or call centre</td></tr>
+            <tr><td>"What's your loan interest rate?"</td><td>"Interest rates vary by customer and product. For a specific quote, call +254 20 322 1000."</td><td>Branch or call centre</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Account-Specific Information</h4>
+        <table>
+          <thead><tr><th>Query</th><th>Response</th><th>Route To</th></tr></thead>
+          <tbody>
+            <tr><td>"What's my account balance?"</td><td>"Log into OTG app or web to check. Or call +254 20 322 1000."</td><td>OTG or call centre</td></tr>
+            <tr><td>"Show me my transaction history"</td><td>"Access your statements via OTG app, i-Click, or call +254 20 322 1000."</td><td>OTG or call centre</td></tr>
+            <tr><td>"What's my loan approval status?"</td><td>"Contact the branch handling your application or call +254 20 322 1000."</td><td>Branch or call centre</td></tr>
+            <tr><td>"Reset my password"</td><td>"Use the 'Forgot Password' option on OTG or i-Click, or call +254 20 322 1000."</td><td>OTG / i-Click or call centre</td></tr>
+          </tbody>
+        </table>
+
+        <h3>📞 Standard Escalation Path</h3>
+        <ol>
+          <li><strong>Acknowledge</strong> the question</li>
+          <li><strong>Explain</strong> it's outside your knowledge base</li>
+          <li><strong>Provide the fallback response:</strong>
+            <blockquote>"I don't have specific information on that in my reference material. For an accurate answer, please call I&amp;M Bank Customer Care on +254 20 322 1000 or +254 719 088 000, email customercare@imbank.co.ke, or visit your nearest branch. I can also connect you with a live agent if you'd like."</blockquote>
+          </li>
+          <li><strong>Offer alternatives</strong> (call, email, visit branch, live agent)</li>
+        </ol>
+
+        <h3>🔑 Key Contact Reference</h3>
+        <table>
+          <thead><tr><th>Contact</th><th>Primary Use</th><th>Hours</th></tr></thead>
+          <tbody>
+            <tr><td>+254 20 322 1000</td><td>General enquiries, all services</td><td>24/7</td></tr>
+            <tr><td>+254 719 088 000</td><td>Fraud, security, card issues</td><td>24/7</td></tr>
+            <tr><td>0800 721 088</td><td>Toll-free card enquiries</td><td>24/7</td></tr>
+            <tr><td>customercare@imbank.co.ke</td><td>Written enquiries</td><td>Monitored 24/7</td></tr>
+            <tr><td>+254 20 322 1001</td><td>Custody &amp; Investment Services</td><td>Mon–Fri, 9 AM–4 PM</td></tr>
+            <tr><td>bancassurance@imbank.co.ke</td><td>Insurance enquiries</td><td>Business hours</td></tr>
+            <tr><td>treasury@imbank.co.ke</td><td>FX, treasury, newsletter</td><td>Business hours</td></tr>
+          </tbody>
+        </table>
+
+        <h3>✅ DO's &amp; DON'Ts</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.5rem;">
+          <div class="alert alert-success">
+            <div>
+              <strong>DO:</strong><br>
+              ✅ Use this matrix before responding<br>
+              ✅ Escalate immediately for fraud/security<br>
+              ✅ Provide full contact details<br>
+              ✅ Be empathetic when escalating<br>
+              ✅ Document the escalation in your logs
+            </div>
+          </div>
+          <div class="alert alert-danger">
+            <div>
+              <strong>DON'T:</strong><br>
+              ❌ Attempt to handle fraud/security issues yourself<br>
+              ❌ Provide account-specific data (balances, statements)<br>
+              ❌ Give financial or legal advice<br>
+              ❌ Guess at rates, fees, or limits<br>
+              ❌ Delay escalation for security concerns
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         SECTION: CONTACTS
+    ══════════════════════════════════════════ -->
+    <div class="doc-section" id="contacts">
+      <div class="doc-section-header">
+        <span class="section-icon">📇</span>
+        <h2>Contact Information</h2>
+        <span class="section-tag">Reference</span>
+      </div>
+      <div class="doc-section-body">
+
+        <h3>24/7 Customer Support</h3>
+        <table>
+          <thead><tr><th>Channel</th><th>Contact</th><th>Use For</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Call Centre (Main)</strong></td><td>+254 20 322 1000</td><td>General enquiries, all services</td></tr>
+            <tr><td><strong>Call Centre (Alt)</strong></td><td>+254 719 088 000</td><td>General enquiries, all services</td></tr>
+            <tr><td><strong>Call Centre (Alt 2)</strong></td><td>+254 732 100 000</td><td>General enquiries, all services</td></tr>
+            <tr><td><strong>Toll-Free (Card)</strong></td><td>0800 721 088</td><td>Card enquiries &amp; issues</td></tr>
+            <tr><td><strong>Email (General)</strong></td><td>customercare@imbank.co.ke</td><td>Written enquiries</td></tr>
+            <tr><td><strong>Email (Call Centre)</strong></td><td>callcentre@imbank.co.ke</td><td>Call centre feedback</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Specialized Services</h3>
+        <table>
+          <thead><tr><th>Service</th><th>Contact</th><th>Hours</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Custody &amp; Investment Services</strong></td><td>I&amp;M Bank Tower, 8th Floor, Kenyatta Avenue, Nairobi. Phone: +254 20 322 1000 / +254 20 322 1001</td><td>Mon–Fri, 9:00 AM – 4:00 PM</td></tr>
+            <tr><td><strong>Bancassurance (Insurance)</strong></td><td>bancassurance@imbank.co.ke</td><td>Business hours</td></tr>
+            <tr><td><strong>Treasury &amp; FX</strong></td><td>treasury@imbank.co.ke</td><td>Business hours</td></tr>
+            <tr><td><strong>Select Banking — Sarit Centre</strong></td><td>Sarit Centre, Westlands</td><td>Mon–Fri, 9:00 AM – 4:00 PM</td></tr>
+            <tr><td><strong>Select Banking — Hannover</strong></td><td>14 Riverside, Riverside Drive</td><td>Mon–Fri, 9:00 AM – 4:00 PM</td></tr>
+            <tr><td><strong>Business Custody</strong></td><td>I&amp;M Bank HQ, 3rd Floor, 1st Parklands Avenue, Nairobi. Phone: +254 20 322 1000 / +254 20 322 1001</td><td>Mon–Fri, 9:00 AM – 4:00 PM</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Postal Address</h3>
+        <p><strong>I&amp;M Bank Limited</strong><br>P.O. Box 30238-00100<br>Nairobi GPO, Kenya</p>
+
+        <div class="alert alert-danger">
+          🚨 <strong>Fraud &amp; Security Hotline — Report Immediately:</strong> Lost or stolen card · Suspected fraud · Unauthorized transactions · Phishing/suspicious emails<br>
+          <strong>Call:</strong> +254 719 088 000 (priority) | +254 20 322 1000 | 0800 721 088
+        </div>
+
+        <h3>Digital Channels</h3>
+        <table>
+          <thead><tr><th>Channel</th><th>Access</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><strong>I&amp;M On The Go (OTG)</strong></td><td>Mobile App / Web</td><td>Personal banking, loans, transfers, payments</td></tr>
+            <tr><td><strong>i-Click (Retail)</strong></td><td>Web</td><td>Internet banking, accounts, services</td></tr>
+            <tr><td><strong>i-Click (Corporate)</strong></td><td>Web</td><td>Business payments, bulk transfers, reporting</td></tr>
+            <tr><td><strong>USSD</strong></td><td><code>*458#</code></td><td>Bank info, balance enquiry (separate registration)</td></tr>
+            <tr><td><strong>M-PESA Xpress</strong></td><td>USSD / Web</td><td>Card payments, transfers, top-ups</td></tr>
+            <tr><td><strong>I&amp;M FX Direct</strong></td><td>Web / Mobile</td><td>Online FX trading (no account needed)</td></tr>
+            <tr><td><strong>Custody Online</strong></td><td>Web</td><td>Investment &amp; custody account management</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Branch Network</h3>
+        <p><strong>Find your nearest branch:</strong> <a href="https://www.imbankgroup.com/ke/atms-branches/branches/" target="_blank">imbankgroup.com/ke/atms-branches/branches/</a></p>
+        <p>Branches across Kenya (Nairobi, Mombasa, Nakuru, Kisumu, and 20+ other counties). Each branch has a <strong>24-hour ATM</strong>. Agency Banking partnerships available nationwide.</p>
+
+        <h3>Escalation Matrix Summary</h3>
+        <table>
+          <thead><tr><th>Issue</th><th>First Contact</th><th>Escalate If</th></tr></thead>
+          <tbody>
+            <tr><td>General enquiry</td><td>Call Centre</td><td>Not resolved in 24 hrs</td></tr>
+            <tr><td>Loan/mortgage application</td><td>Branch</td><td>Decision needed; over 48 hrs</td></tr>
+            <tr><td>Card issue</td><td>0800 721 088</td><td>Cannot resolve; fraud suspected</td></tr>
+            <tr><td>Fraud / security</td><td>+254 719 088 000</td><td><strong>Immediate escalation</strong></td></tr>
+            <tr><td>Investment / custody</td><td>Custody team +254 20 322 1000</td><td>Complex query</td></tr>
+            <tr><td>Insurance enquiry</td><td>bancassurance@imbank.co.ke</td><td>Claim or complex cover</td></tr>
+            <tr><td>Business account</td><td>Relationship Manager</td><td>Custom solution needed</td></tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         SECTION: OPERATING RULES
+    ══════════════════════════════════════════ -->
+    <div class="doc-section" id="operating-rules">
+      <div class="doc-section-header">
+        <span class="section-icon">⚙️</span>
+        <h2>Chatbot Operating Rules</h2>
+        <span class="section-tag">Reference</span>
+      </div>
+      <div class="doc-section-body">
+
+        <p style="font-size:0.82rem;color:#4a6a8a;margin-bottom:1rem;">Version: 1.0 · Updated: 6 May 2026 · Applies to: AI Chatbot responses powered by I&amp;M Bank Kenya Knowledgebase</p>
+
+        <h3>Rule 1: Grounding (Anti-Hallucination)</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+          <div class="alert alert-success"><strong>✅ DO:</strong><br>Answer only using information in the knowledgebase<br>Quote rates, fees, and limits verbatim from the document<br>Say "I don't have that information" when unsure<br>Use the fallback response for out-of-scope questions</div>
+          <div class="alert alert-danger"><strong>❌ DON'T:</strong><br>Invent or infer information not in the document<br>Extrapolate one product's terms to another<br>Guess at specific rates, fees, or limits<br>Compare I&amp;M Bank to competitors<br>Provide information from external sources</div>
+        </div>
+
+        <h3>Rule 2: Verification Reminder</h3>
+        <div class="alert alert-warning">⚠️ <strong>Always include</strong> for all time-sensitive items (rates, fees, exchange rates, branch hours, eligibility):<br><em>"For the latest rates and final eligibility, please confirm with the branch or call +254 20 322 1000."</em></div>
+
+        <h3>Rule 3: Never Give Advice</h3>
+        <ul>
+          <li>❌ Financial advice (e.g., "You should get this loan")</li>
+          <li>❌ Legal interpretations of terms</li>
+          <li>❌ Tax or KRA advice</li>
+          <li>❌ Investment forecasts or market predictions</li>
+          <li>❌ Recommendations on which product to choose</li>
+        </ul>
+        <p>Instead, route to: Relationship Manager, Branch staff, Qualified professional (tax, legal), or Custody &amp; Investment Services advisor.</p>
+
+        <h3>Rule 4: Sensitive Information Protocol</h3>
+        <div class="alert alert-danger">❌ <strong>NEVER ask for or accept:</strong> Passwords or PINs · One-Time Passwords (OTPs) · Full card numbers or CVVs · ID numbers or full account numbers · KRA PINs</div>
+        <p>If a customer volunteers this info: instruct them "Do not share this with anyone, including I&amp;M Bank staff." Recommend they report to security if suspicious. Escalate to fraud hotline if needed.</p>
+
+        <h3>Rule 5: Fraud &amp; Security Escalation</h3>
+        <div class="alert alert-danger">🚨 <strong>IMMEDIATE ESCALATION if customer reports:</strong> Lost or stolen card · Suspected fraud · Unauthorized transaction · Phishing or suspicious communication<br><br><strong>Direct to:</strong> +254 719 088 000 (primary) · +254 20 322 1000 · 0800 721 088 (toll-free) · Nearest branch<br><br><strong>Do NOT:</strong> Attempt to troubleshoot · Ask for account details · Delay the escalation</div>
+
+        <h3>Rule 6: Out-of-Scope Response</h3>
+        <blockquote>"I don't have specific information on that in my reference material. For an accurate answer, please call I&amp;M Bank Customer Care on +254 20 322 1000 or +254 719 088 000, email customercare@imbank.co.ke, or visit your nearest branch. I can also connect you with a live agent if you'd like."</blockquote>
+
+        <h3>Rule 7: Tone &amp; Language</h3>
+        <ul>
+          <li><strong>Professional</strong> — use business language</li>
+          <li><strong>Concise</strong> — keep responses brief and clear</li>
+          <li><strong>Courteous</strong> — be respectful and helpful</li>
+          <li><strong>Multilingual support</strong> — English and Swahili where appropriate</li>
+          <li><strong>Avoid jargon</strong> — explain technical terms</li>
+        </ul>
+
+        <h3>Rule 8: Account-Specific Queries</h3>
+        <p>❌ Don't attempt to answer: "What's my account balance?" · "Show me my transaction history" · "What's my loan approval status?" · "Unblock my card" · "Reset my password"</p>
+        <p>✅ Instead, direct to: OTG mobile app or web portal · Call Centre: +254 20 322 1000 · Nearest branch</p>
+
+        <h3>Rule 9: Documentation Always Ready</h3>
+        <ul>
+          <li><strong>24-hour Call Centre:</strong> +254 20 322 1000, +254 719 088 000, 0800 721 088 (toll-free)</li>
+          <li><strong>Email:</strong> customercare@imbank.co.ke</li>
+          <li><strong>Website:</strong> <a href="https://www.imbankgroup.com/ke/" target="_blank">imbankgroup.com/ke</a></li>
+        </ul>
+
+        <h3>Quick Reference: When to Escalate</h3>
+        <table>
+          <thead><tr><th>Scenario</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Customer asks for personal financial advice</td><td>"I can't advise. Speak with a Relationship Manager."</td></tr>
+            <tr><td>Customer reports fraud</td><td>Call +254 719 088 000 immediately</td></tr>
+            <tr><td>Customer shares sensitive info (PIN, OTP)</td><td>Tell them not to share this with anyone. Escalate to security.</td></tr>
+            <tr><td>Question not in knowledgebase</td><td>Use fallback response</td></tr>
+            <tr><td>Request for account balance / history</td><td>Direct to OTG app or call +254 20 322 1000</td></tr>
+            <tr><td>Interest rate inquiry</td><td>"For current rates, call +254 20 322 1000 or visit the branch."</td></tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align:center;padding:2rem 0 1rem;font-size:0.78rem;color:#8a9ab0;">
+      <p><strong>I&amp;M Bank Kenya — AI Chatbot Knowledgebase</strong> · Document v1.0 · Compiled 6 May 2026</p>
+      <p style="margin-top:0.3rem;">Maintained by KatiCRM AI Assistant Development · Content sourced from <a href="https://www.imbankgroup.com/ke/" target="_blank" style="color:#1a5fa8;">imbankgroup.com/ke</a> · Internal Use Only</p>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
