@@ -1,0 +1,11 @@
+site_name: I&M Bank Kenya Knowledgebase
+theme:
+  name: material
+nav:
+  - Home: README.md
+  - Knowledgebase: KNOWLEDGEBASE.md
+  - Products: PRODUCTS.md
+  - FAQs: FAQS.md
+  - Escalation: ESCALATION.md
+  - Contacts: CONTACTS.md
+  - Operating Rules: OPERATING_RULES.md
